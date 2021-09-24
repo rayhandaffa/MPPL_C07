@@ -15,5 +15,5 @@ NRP              | Nama
   Dokumen Perencanaan ini berisi terdiri dari : 
   1. **Dokumen Perancangan Kebutuhan** <br>
       Dokumen ini dibuat agar dapat menjadikan dasar guna untuk melanjutkan projek yang akan dibangun atau di kembangkan.
-  2. Dokumen Ruang Lingkup
+  2. **Dokumen Ruang Lingkup**<br>
       Dokumen Ruang Lingkup ini merupakan sebuah dokumen yang berguna untuk dapat memastikan projek yang akan dibangun ini sesuai dengan apa yang diperlukan.
