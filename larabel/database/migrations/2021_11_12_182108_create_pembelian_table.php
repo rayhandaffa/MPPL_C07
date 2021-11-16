@@ -16,13 +16,13 @@ class CreatePembelianTable extends Migration
         Schema::create('pembelian', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('waktu');
-            $table->string('ALamatPengiriman');
+            $table->string('AlamatPengiriman');
             $table->integer('TotalPembelian');
             $table->string('StatusPengiriman');
             $table->string('StatusPembayaran');
             $table->string('MetodePengiriman');
             $table->string('MetodePembayaran');
-            $table->foreign('id_pelanggan')->references('id')->on('pelanggan');
+            $table->unsignedBigInteger('id_pelanggan');
         });
     }
 
