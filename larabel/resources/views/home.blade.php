@@ -186,14 +186,14 @@
             <div class="container">
                 <div class="row">
                     <!-- Start Left Feature -->
-                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 float-left-style">
                         <!-- Start Slider Area -->
                         <div class="slider__container slider--one">
                             <div class="slider__activation__wrap owl-carousel owl-theme">
                                 <!-- Start Single Slide -->
                                 <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
                                     <div class="container">
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
                                                 <div class="slider__inner">
                                                     <h1>New Product <span class="text--theme">Collection</span></h1>
@@ -202,7 +202,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                        <img src="{{ asset('template/images/logo_besar.png')}}" alt="logo">
                                     </div>
                                 </div>
                                 <!-- End Single Slide -->
@@ -226,197 +227,14 @@
                         </div>
                         <!-- Start Slider Area -->
                     </div>
-                    <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 float-right-style">
+                    <!-- <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 float-right-style">
                         <div class="categories-menu mrg-xs">
                             <div class="category-heading">
                                <h3> Browse Categories</h3>
                             </div>
                             <div class="category-menu-list">
                                 <ul>
-                                    <li><a href="#"><img alt="" src="images/icons/thum2.png"> Women’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-part-1 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-4 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum3.png"> Man Fashion <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-part-1 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common2 mb--30">
-                                                <h4 class="categories-subtitle">dress</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="mega-banner-img">
-                                                <a href="single-product.html">
-                                                    <img src="images/feature-img/5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum4.png"> Computer & Office <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-menu-dropdown-top">
-                                                <div class="category-part-1 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-2 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-3 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle">Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="category-menu-dropdown-bottom">
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/6.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/7.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/8.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/9.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum5.png"> Jewelry & Watches <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-menu-dropdown-left">
-                                                <div class="category-part-1 category-common mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-2 category-common mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-3 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-4 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="category-menu-dropdown-right">
-                                                <div class="menu-right-img">
-                                                    <a href="#"><img src="images/feature-img/2.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    
                                     <li><a href="#"><img alt="" src="images/icons/thum6.png"> Men’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
                                         <div class="category-menu-dropdown">
                                             <div class="category-menu-dropdown-left">
@@ -461,44 +279,25 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- End Left Feature -->
                 </div>
             </div>
         </section>
         <!-- End Feature Product -->
-        <div class="only-banner ptb--100 bg__white">
+        <!-- <div class="only-banner ptb--100 bg__white">
             <div class="container">
                 <div class="only-banner-img">
                     <a href="shop-sidebar.html"><img src="images/new-product/3.jpg" alt="new product"></a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Start Our Product Area -->
-        <section class="htc__product__area bg__white">
+        <section class="htc__product__area bg__white" style="margin-top:60px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="product-categories-all">
-                            <div class="product-categories-title">
-                                <h3>Jewelry & watches</h3>
-                            </div>
-                            <div class="product-categories-menu">
-                                <ul>
-                                    <li><a href="#">awesome Rings</a></li>
-                                    <li><a href="#">Hot Earrings</a></li>
-                                    <li><a href="#">Jewelry Sets</a></li>
-                                    <li><a href="#">Beads Jewelry</a></li>
-                                    <li><a href="#">Men's Watches</a></li>
-                                    <li><a href="#">Women’s Watches</a></li>
-                                    <li><a href="#">Popular Bracelets</a></li>
-                                    <li><a href="#"> Pendant Necklaces</a></li>
-                                    <li><a href="#">Children's Watches</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
+                    
+                    <div class="">
                         <div class="product-style-tab">
                             <div class="product-tab-list">
                                 <!-- Nav tabs -->
@@ -542,7 +341,7 @@
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
                                                             <a href="#">
-                                                                <img src="images/product/1.png" alt="product images">
+                                                                <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
                                                             </a>
                                                         </div>
                                                         <div class="product__hover__info">
@@ -2253,109 +2052,7 @@
         <!-- Start Footer Area -->
         <footer class="htc__foooter__area gray-bg">
             <div class="container">
-                <div class="row">
-                    <div class="footer__container clearfix">
-                         <!-- Start Single Footer Widget -->
-                        <div class="col-md-3 col-lg-3 col-sm-6">
-                            <div class="ft__widget">
-                                <div class="ft__logo">
-                                    <a href="index.html">
-                                        <img src="images/logo/logo.png" alt="footer logo">
-                                    </a>
-                                </div>
-                                <div class="footer-address">
-                                    <ul>
-                                        <li>
-                                            <div class="address-icon">
-                                                <i class="zmdi zmdi-pin"></i>
-                                            </div>
-                                            <div class="address-text">
-                                                <p>194 Main Rd T, FS Rayed <br> VIC 3057, USA</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="address-icon">
-                                                <i class="zmdi zmdi-email"></i>
-                                            </div>
-                                            <div class="address-text">
-                                                <a href="#"> info@example.com</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="address-icon">
-                                                <i class="zmdi zmdi-phone-in-talk"></i>
-                                            </div>
-                                            <div class="address-text">
-                                                <p>+012 345 678 102 </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="social__icon">
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Single Footer Widget -->
-                        <!-- Start Single Footer Widget -->
-                        <div class="col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30">
-                            <div class="ft__widget">
-                                <h2 class="ft__title">Categories</h2>
-                                <ul class="footer-categories">
-                                    <li><a href="shop-sidebar.html">Men</a></li>
-                                    <li><a href="shop-sidebar.html">Women</a></li>
-                                    <li><a href="shop-sidebar.html">Accessories</a></li>
-                                    <li><a href="shop-sidebar.html">Shoes</a></li>
-                                    <li><a href="shop-sidebar.html">Dress</a></li>
-                                    <li><a href="shop-sidebar.html">Denim</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Start Single Footer Widget -->
-                        <div class="col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30">
-                            <div class="ft__widget">
-                                <h2 class="ft__title">Infomation</h2>
-                                <ul class="footer-categories">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Returns & Exchanges</a></li>
-                                    <li><a href="#">Shipping & Delivery</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Start Single Footer Widget -->
-                        <div class="col-md-3 col-lg-3 col-lg-offset-1 col-sm-6 smt-30 xmt-30">
-                            <div class="ft__widget">
-                                <h2 class="ft__title">Newsletter</h2>
-                                <div class="newsletter__form">
-                                    <p>Subscribe to our newsletter and get 10% off your first purchase .</p>
-                                    <div class="input__box">
-                                        <div id="mc_embed_signup">
-                                            <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                                <div id="mc_embed_signup_scroll" class="htc__news__inner">
-                                                    <div class="news__input">
-                                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
-                                                    </div>
-                                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                                    <div class="clearfix subscribe__btn"><input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
-                                                        
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>        
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer Widget -->
-                    </div>
-                </div>
+                
                 <!-- Start Copyright Area -->
                 <div class="htc__copyright__area">
                     <div class="row">
@@ -2394,7 +2091,7 @@
                             <!-- Start product images -->
                             <div class="product-images">
                                 <div class="main-image images">
-                                    <img alt="big images" src="images/product/big-img/1.jpg">
+                                    <img alt="big images" src="public/template/images/product/big-img/1.jpg">
                                 </div>
                             </div>
                             <!-- end product images -->
