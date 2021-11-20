@@ -210,7 +210,8 @@
                                 <!-- Start Single Slide -->
                                 <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/2.png) no-repeat scroll center center / cover ;">
                                     <div class="container">
-                                        <div class="row">
+                                        <img src="{{ asset('images/cokies.jpg')}}" alt="logo">
+                                        {{-- <div class="row">
                                             <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
                                                 <div class="slider__inner">
                                                     <h1>New Product <span class="text--theme">Collection</span></h1>
@@ -219,7 +220,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <!-- End Single Slide -->
