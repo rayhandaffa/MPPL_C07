@@ -80,21 +80,25 @@
                     <div class="off__contact">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="images/logo/logo.png" alt="logo">
+                                <img src="{{asset('template/images/logo_kecil.jpg')}}" alt="logo">
                             </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                        <p>Gabung menjadi member untuk mendapatkan potongan harga di setiap pembeliannya!</p>
                     </div>
-                    <ul class="sidebar__thumd">
-                        <li><a href="#"><img src="images/sidebar-img/1.jpg" alt="sidebar images"></a></li>
+                    <!-- <ul class="sidebar__thumd"> -->
+                        <div class="btn-info mt--30">
+                            <a href="#">DAFTAR SEKARANG</a>
+                        </div>
+                        <p>Sudah terdaftar? <a href="">Masuk</a></p>
+                        <!-- <li><a href="#"><img src="images/sidebar-img/1.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/2.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/3.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/4.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/5.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/6.jpg" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="images/sidebar-img/7.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/8.jpg" alt="sidebar images"></a></li>
-                    </ul>
+                        <li><a href="#"><img src="images/sidebar-img/8.jpg" alt="sidebar images"></a></li> -->
+                    <!-- </ul> -->
                     <div class="offset__widget">
                         <div class="offset__single">
                             <h4 class="offset__title">Language</h4>
