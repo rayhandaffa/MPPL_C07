@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CokiesDessert</title>
+    <title>Tmart-Minimalist eCommerce HTML5 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -185,178 +185,119 @@
             <!-- End Cart Panel -->
         </div>
         <!-- End Offset Wrapper -->
-        <section class="htc__product__area shop__page ptb--130 bg__white">
+        <div class="bradcaump__inner text-center">
+            <h2 class="bradcaump-title">Cart</h2>
+            <nav class="bradcaump-inner">
+                <a class="breadcrumb-item" href="index.html">Home</a>
+                <span class="brd-separetor">/</span>
+                <span class="breadcrumb-item active">Cart</span>
+            </nav>
+        </div>
+        <!-- cart-main-area start -->
+        <div class="cart-main-area ptb--120 bg__white">
             <div class="container">
-                <div class="htc__product__container">
-                    <!-- Start Product MEnu -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="product-style-tab">
-                                <div class="product-tab-list">
-                                    <!-- Nav tabs -->
-                                    <ul class="tab-style" role="tablist">
-                                        <li class="active">
-                                            <a href="#home1" data-toggle="tab">
-                                                <div class="tab-menu-text">
-                                                    <h4>ALL</h4>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#home2" data-toggle="tab">
-                                                <div class="tab-menu-text">
-                                                    <h4>COOKIES</h4>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#home3" data-toggle="tab">
-                                                <div class="tab-menu-text">
-                                                    <h4>BROWNIES</h4>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form action="#">               
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                           $cartItems = \Cart::getContent();
+                                        ?>
+                                        @foreach ($cartItems as $item)
+                                        <tr>
+                                            <td class="product-thumbnail"><a href="#"><img src="{{asset('images/contoh_cookies.jpg')}}" alt="product img" /></a></td>
+                                            <td class="product-name"><a href="#">{{$item->name}}</a></td>
+                                            <td class="product-price"><span class="amount">{{$item->price}}</span></td>
+                                            <td class="product-quantity"><input type="number" value="{{ $item->quantity }}" /></td>
+                                            <td class="product-subtotal">{{$item->price * $item->quantity }}</td>
+                                            <td class="product-remove">
+                                                <form id="cartRemove-form" action="{{ route('cart.remove') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" value="{{ $item->id }}" name="id">
+                                                    <a href="javascript:void()" onclick="document.getElementById('cartRemove-form').submit();">X</a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-7 col-xs-12">
+                                    <div class="buttons-cart">
+                                        <input type="submit" value="Update Cart" />
+                                        <a href="#">Continue Shopping</a>
+                                    </div>
+                                    <div class="coupon">
+                                        <h3>Coupon</h3>
+                                        <p>Enter your coupon code if you have one.</p>
+                                        <input type="text" placeholder="Coupon code" />
+                                        <input type="submit" value="Apply Coupon" />
+                                    </div>
                                 </div>
-                                <div class="tab-content another-product-style jump">
-                                    <div class="tab-pane active" id="home1">
-                                        <div class="row">
-                                            <div class="">
-                                                <?php
-                                                    $products = DB::select('select * from produk');
-                                                ?>
-                                                @foreach($products as $product)
-                                                <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
-                                                    <div class="product">
-                                                        <div class="product__inner">
-                                                            <div class="pro__thumb">
-                                                                <a href="#">
-                                                                    <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product__hover__info">
-                                                                <ul class="product__action">
-                                                                    <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                                    <li>
-                                                                        <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                                                                        @csrf  
-                                                                            <input type="hidden" value="{{ $product->id }}" name="id">
-                                                                            <input type="hidden" value="{{ $product->name }}" name="name">
-                                                                            <input type="hidden" value="{{ $product->price }}" name="price">
-                                                                            <input type="hidden" value="bentar belum"  name="image">
-                                                                            <input type="hidden" value="1" name="quantity">
-                                                                            <a title="Add TO Cart" href="javascript:void()" onclick="document.getElementById('addToCart-form').submit();"> <span class="ti-shopping-cart"></span></a>
-                                                                        </form>
-                                                                    </li>
-                                                                    <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product__details">
-                                                            <h2><a href="product-details.html">{{$product->name}}</a></h2>
-                                                            <ul class="product__price">
-                                                                <!-- <li class="old__price">$16.00</li> -->
-                                                                <li class="new__price">{{$product->price}}</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="home2">
-                                        <div class="row">
-                                            <div class="">
-                                                <?php
-                                                    $products = DB::select('select * from produk where category="cookies"');
-                                                ?>
-                                                @foreach($products as $product)
-                                                <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
-                                                    <div class="product">
-                                                        <div class="product__inner">
-                                                            <div class="pro__thumb">
-                                                                <a href="#">
-                                                                    <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product__hover__info">
-                                                                <ul class="product__action">
-                                                                    <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                                    <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                                    <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product__details">
-                                                            <h2><a href="product-details.html">{{$product->name}}</a></h2>
-                                                            <ul class="product__price">
-                                                                <!-- <li class="old__price">$16.00</li> -->
-                                                                <li class="new__price">{{$product->price}}</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="home3">
-                                        <div class="row">
-                                            <div class="">
-                                                <?php
-                                                    $products = DB::select('select * from produk where category="brownies"');
-                                                ?>
-                                                @foreach($products as $product)
-                                                <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
-                                                    <div class="product">
-                                                        <div class="product__inner">
-                                                            <div class="pro__thumb">
-                                                                <a href="#">
-                                                                    <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product__hover__info">
-                                                                <ul class="product__action">
-                                                                    <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                                    <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                                    <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product__details">
-                                                            <h2><a href="product-details.html">{{$product->name}}</a></h2>
-                                                            <ul class="product__price">
-                                                                <!-- <li class="old__price">$16.00</li> -->
-                                                                <li class="new__price">{{$product->price}}</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
+                                <div class="col-md-4 col-sm-5 col-xs-12">
+                                    <div class="cart_totals">
+                                        <h2>Cart Totals</h2>
+                                        <table>
+                                            <tbody>
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td><span class="amount">Total: {{ Cart::getTotal() }}</span></td>
+                                                </tr>
+                                                <tr class="shipping">
+                                                    <th>Shipping</th>
+                                                    <td>
+                                                        <ul id="shipping_method">
+                                                            <li>
+                                                                <input type="radio" /> 
+                                                                <label>
+                                                                    Flat Rate: <span class="amount">£7.00</span>
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" /> 
+                                                                <label>
+                                                                    Free Shipping
+                                                                </label>
+                                                            </li>
+                                                            <li></li>
+                                                        </ul>
+                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
+                                                    </td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td>
+                                                        <strong><span class="amount">{{ Cart::getTotal() }}</span></strong>
+                                                    </td>
+                                                </tr>                                           
+                                            </tbody>
+                                        </table>
+                                        <div class="wc-proceed-to-checkout">
+                                            <a href="checkout.html">Proceed to Checkout</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                        </div>
+                        </form> 
                     </div>
-                    
-                    <!-- End Product MEnu -->
-                    
-                    <!-- Start Load More BTn -->
-                    <div class="row mt--60">
-                        <div class="col-md-12">
-                            <div class="htc__loadmore__btn">
-                                <a href="#">load more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Load More BTn -->
                 </div>
             </div>
-        </section>
+        </div>
+        <!-- cart-main-area end -->
+        
         <!-- Start Footer Area -->
         <footer class="htc__foooter__area gray-bg">
             <div class="container">
