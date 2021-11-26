@@ -240,12 +240,13 @@
                                                                     <li>
                                                                         <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                                         @csrf  
+                                                                            <!-- <input type="reset"> -->
                                                                             <input type="hidden" value="{{ $product->id }}" name="id">
                                                                             <input type="hidden" value="{{ $product->name }}" name="name">
                                                                             <input type="hidden" value="{{ $product->price }}" name="price">
                                                                             <input type="hidden" value="bentar belum"  name="image">
                                                                             <input type="hidden" value="1" name="quantity">
-                                                                            <a title="Add TO Cart" href="javascript:void()" onclick="document.getElementById('addToCart-form').submit();"> <span class="ti-shopping-cart"></span></a>
+                                                                            <button> <span class="ti-shopping-cart"></span> </button>
                                                                         </form>
                                                                     </li>
                                                                     <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>

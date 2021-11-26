@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Tmart-Minimalist eCommerce HTML5 Template</title>
+    <title>CokiesDessert</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -32,6 +32,8 @@
 
     <!-- Modernizr JS -->
     <script src="{{ asset('template/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -186,19 +188,14 @@
         </div>
         <!-- End Offset Wrapper -->
         <div class="bradcaump__inner text-center">
-            <h2 class="bradcaump-title">Cart</h2>
-            <nav class="bradcaump-inner">
-                <a class="breadcrumb-item" href="index.html">Home</a>
-                <span class="brd-separetor">/</span>
-                <span class="breadcrumb-item active">Cart</span>
-            </nav>
+            <h2 class="bradcaump-title">Checkout </h2>
         </div>
         <!-- cart-main-area start -->
         <div class="cart-main-area ptb--120 bg__white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="#">               
+                        <!-- <form action="#">                -->
                             <div class="table-content table-responsive">
                                 <table>
                                     <thead>
@@ -208,7 +205,7 @@
                                             <th class="product-price">Price</th>
                                             <th class="product-quantity">Quantity</th>
                                             <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -220,38 +217,88 @@
                                             <td class="product-thumbnail"><a href="#"><img src="{{asset('images/contoh_cookies.jpg')}}" alt="product img" /></a></td>
                                             <td class="product-name"><a href="#">{{$item->name}}</a></td>
                                             <td class="product-price"><span class="amount">{{$item->price}}</span></td>
-                                            <td class="product-quantity"><input type="number" value="{{ $item->quantity }}" /></td>
+                                            <td class="product-quantity"><span class="amount">{{ $item->quantity }}</span></td>
                                             <td class="product-subtotal">{{$item->price * $item->quantity }}</td>
-                                            <td class="product-remove">
-                                                <form id="cartRemove-form" action="{{ route('cart.remove') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" value="{{ $item->id }}" name="id">
-                                                    <a href="javascript:void()" onclick="document.getElementById('cartRemove-form').submit();">X</a>
-                                                </form>
-                                            </td>
+                                            
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
                             <div class="row">
-                                <div class="col-md-8 col-sm-7 col-xs-12">
-                                    <div class="buttons-cart">
-                                        <input type="submit" value="Update Cart" />
-                                        <a href="#">Continue Shopping</a>
+                                <div class="col-md-8 col-lg-8">
+                                    <div class="ckeckout-left-sidebar">
+                                        <!-- Start Checkbox Area -->
+                                        <div class="checkout-form">
+                                            <h2 class="section-title-3">Billing details</h2>
+                                            <form id="addOrder-form" action="{{ route('order.store') }}" method="POST" >
+                                            @csrf  
+                                            <div class="checkout-form-inner">
+                                                <div class="single-checkout-box" >
+                                                    <input style="width:100%;" name="name" type="text" placeholder="Nama*">
+                                                </div>
+                                                <div class="single-checkout-box">
+                                                    <input name="email" type="email" placeholder="Email*">
+                                                    <input name="handphone" type="text" placeholder="Nomor Handphone*">
+                                                </div>
+                                                <div class="single-checkout-box">
+                                                    <textarea name="address" placeholder="Alamat*"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Checkbox Area -->
+                                        <!-- Start Payment Box -->
+                                        <div class="payment-form" style="width:50%;">
+                                            <h2 class="section-title-3" style="padding:10px;">payment methods</h2>
+                                            <!-- <p>Lorem ipsum dolor sit amet, consectetur kgjhyt</p> -->
+                                            <ul class="list-group list-group-flush" style="padding-left:30px;">
+                                                <li class="list-group-item">
+                                                <!-- Default checked -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            OVO
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                <!-- Default checked -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Bank Mandiri (Virtual Account)
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                <!-- Default checked -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Bank Mandiri (Manual)
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- End Payment Box -->
                                     </div>
-                                    <!-- <div class="coupon">
-                                        <h3>Coupon</h3>
-                                        <p>Enter your coupon code if you have one.</p>
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
-                                    </div> -->
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
-                                    <div class="cart_totals" >
-                                        <h2 style="margin:0 0 0 0">Cart Totals</h2> <br></br>
-                                        <h1><strong><span class="amount">{{ Cart::getTotal() }}</span></strong></h1>
-                                        <!-- <table>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="coupon">
+                                                <h3>Coupon</h3>
+                                                <p>Enter your coupon code if you have one.</p>
+                                                <input type="text" placeholder="Coupon code" />
+                                                <input type="submit" value="Apply Coupon" />
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="cart_totals">
+                                        <h2>Cart Totals</h2>
+                                        <table>
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Subtotal</th>
@@ -264,13 +311,13 @@
                                                             <li>
                                                                 <input type="radio" /> 
                                                                 <label>
-                                                                    Flat Rate: <span class="amount">£7.00</span>
+                                                                    Tarif Tetap (JABODETABEK) : <span class="amount">20000</span>
                                                                 </label>
                                                             </li>
                                                             <li>
                                                                 <input type="radio" /> 
                                                                 <label>
-                                                                    Free Shipping
+                                                                    Pick Up Store
                                                                 </label>
                                                             </li>
                                                             <li></li>
@@ -285,18 +332,28 @@
                                                     </td>
                                                 </tr>                                           
                                             </tbody>
-                                        </table> -->
+                                        </table>
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="checkout.html">Proceed to Checkout</a>
+                                            
+                                            
+                                                <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Name"/> -->
+                                            
+                                                <!-- <button> <span class="ti-shopping-cart"></span> </button> -->
+                                                <button type="submit">Proceed to Checkout</button>
+                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form> 
+                            
+                        <!-- </form>  -->
                     </div>
                 </div>
             </div>
         </div>
+
+        
         <!-- cart-main-area end -->
         
         <!-- Start Footer Area -->

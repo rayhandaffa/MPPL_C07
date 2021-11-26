@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,15 @@ Route::get('/login2', function () {
 
 Route::get('/cart2', function () {
     return view('cart2');
-});
+})->name('cart');
 
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -36,6 +44,8 @@ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
+Route::post('/order', [OrderController::class, 'addOrder'])->name('order.store');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

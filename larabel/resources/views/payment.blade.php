@@ -185,119 +185,90 @@
             <!-- End Cart Panel -->
         </div>
         <!-- End Offset Wrapper -->
-        <div class="bradcaump__inner text-center">
-            <h2 class="bradcaump-title">Cart</h2>
-            <nav class="bradcaump-inner">
-                <a class="breadcrumb-item" href="index.html">Home</a>
-                <span class="brd-separetor">/</span>
-                <span class="breadcrumb-item active">Cart</span>
-            </nav>
-        </div>
-        <!-- cart-main-area start -->
-        <div class="cart-main-area ptb--120 bg__white">
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="#">               
-                            <div class="table-content table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                           $cartItems = \Cart::getContent();
-                                        ?>
-                                        @foreach ($cartItems as $item)
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="{{asset('images/contoh_cookies.jpg')}}" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">{{$item->name}}</a></td>
-                                            <td class="product-price"><span class="amount">{{$item->price}}</span></td>
-                                            <td class="product-quantity"><input type="number" value="{{ $item->quantity }}" /></td>
-                                            <td class="product-subtotal">{{$item->price * $item->quantity }}</td>
-                                            <td class="product-remove">
-                                                <form id="cartRemove-form" action="{{ route('cart.remove') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" value="{{ $item->id }}" name="id">
-                                                    <a href="javascript:void()" onclick="document.getElementById('cartRemove-form').submit();">X</a>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-sm-7 col-xs-12">
-                                    <div class="buttons-cart">
-                                        <input type="submit" value="Update Cart" />
-                                        <a href="#">Continue Shopping</a>
-                                    </div>
-                                    <!-- <div class="coupon">
-                                        <h3>Coupon</h3>
-                                        <p>Enter your coupon code if you have one.</p>
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
-                                    </div> -->
-                                </div>
-                                <div class="col-md-4 col-sm-5 col-xs-12">
-                                    <div class="cart_totals" >
-                                        <h2 style="margin:0 0 0 0">Cart Totals</h2> <br></br>
-                                        <h1><strong><span class="amount">{{ Cart::getTotal() }}</span></strong></h1>
-                                        <!-- <table>
-                                            <tbody>
-                                                <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td><span class="amount">Total: {{ Cart::getTotal() }}</span></td>
-                                                </tr>
-                                                <tr class="shipping">
-                                                    <th>Shipping</th>
-                                                    <td>
-                                                        <ul id="shipping_method">
-                                                            <li>
-                                                                <input type="radio" /> 
-                                                                <label>
-                                                                    Flat Rate: <span class="amount">£7.00</span>
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="radio" /> 
-                                                                <label>
-                                                                    Free Shipping
-                                                                </label>
-                                                            </li>
-                                                            <li></li>
-                                                        </ul>
-                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
-                                                    </td>
-                                                </tr>
-                                                <tr class="order-total">
-                                                    <th>Total</th>
-                                                    <td>
-                                                        <strong><span class="amount">{{ Cart::getTotal() }}</span></strong>
-                                                    </td>
-                                                </tr>                                           
-                                            </tbody>
-                                        </table> -->
-                                        <div class="wc-proceed-to-checkout">
-                                            <a href="checkout.html">Proceed to Checkout</a>
+                    <!-- Start Left Feature -->
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="htc__contact__container">
+                            <div class="htc__contact__address">
+                                <h2 class="contact__title">contact info</h2>
+                                <div class="contact__address__inner">
+                                    <!-- Start Single Adress -->
+                                    <div class="single__contact__address">
+                                        <div class="contact__icon">
+                                            <span class="ti-credit-card"></span>
+                                        </div>
+                                        <div class="contact__details">
+                                            <p><strong>Virtual Account :</strong> <br> 1234556789</p>
                                         </div>
                                     </div>
+                                    <!-- End Single Adress -->
+                                </div>
+                                <div class="contact__address__inner">
+                                    <!-- Start Single Adress -->
+                                    <div class="single__contact__address">
+                                        <div class="contact__icon">
+                                            <span class="ti-id-badge"></span>
+                                        </div>
+                                        <div class="contact__details">
+                                            <p> <strong>Virtual Account Name : </strong><br><a href="#">CokiesDessert </a></p>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Adress -->
+                                </div>
+                                <div class="contact__address__inner">
+                                    <!-- Start Single Adress -->
+                                    <div class="single__contact__address">
+                                        <div class="contact__icon">
+                                            <span class="ti-money"></span>
+                                        </div>
+                                        <div class="contact__details">
+                                            <p><strong>Total Pembayaran :</strong> <br> Rp. 98.000,00</p>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Adress -->
                                 </div>
                             </div>
-                        </form> 
+                            <div class="contact-form-wrap">
+                            <div class="contact-title">
+                                <h2 class="contact__title">Get In Touch</h2>
+                            </div>
+                            <form id="contact-form" action="mail.php" method="post">
+                                <div class="single-contact-form">
+                                    <div class="contact-box name">
+                                        <input type="text" name="name" placeholder="Your Nme*">
+                                        <input type="email" name="email" placeholder="Mail*">
+                                    </div>
+                                </div>
+                                <div class="single-contact-form">
+                                    <div class="contact-box subject">
+                                        <input type="text" name="subject" placeholder="Subject*">
+                                    </div>
+                                </div>
+                                <div class="single-contact-form">
+                                    <div class="contact-box message">
+                                        <textarea name="message"  placeholder="Massage*"></textarea>
+                                    </div>
+                                </div>
+                                <div class="contact-btn">
+                                    <button type="submit" class="fv-btn">SEND</button>
+                                </div>
+                            </form>
+                        </div> 
+                        <div class="form-output">
+                            <p class="form-messege"></p>
+                        </div>
+                        </div>
                     </div>
+                    <!-- End Left Feature -->
                 </div>
             </div>
-        </div>
-        <!-- cart-main-area end -->
+        </section>
+        <!-- End Feature Product -->
+       
+        
         
         <!-- Start Footer Area -->
         <footer class="htc__foooter__area gray-bg">
