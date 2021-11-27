@@ -193,7 +193,7 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="htc__contact__container">
                             <div class="htc__contact__address">
-                                <h2 class="contact__title">contact info</h2>
+                                <h2 class="contact__title">Mandiri Virtual Account</h2>
                                 <div class="contact__address__inner">
                                     <!-- Start Single Adress -->
                                     <div class="single__contact__address">

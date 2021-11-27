@@ -13,16 +13,16 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('time');
+            $table->timestamps();
             $table->string('address');
             $table->integer('total');
             $table->string('status');
-            $table->string('payment_status');
+            $table->string('payment_status')->nullable();
             $table->string('shipping_method');
             $table->string('payment_method');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable();
         });
     }
 

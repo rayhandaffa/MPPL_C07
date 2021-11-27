@@ -255,7 +255,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="ovo" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             OVO
                                                         </label>
@@ -264,7 +264,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="va_mandiri" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Bank Mandiri (Virtual Account)
                                                         </label>
@@ -273,7 +273,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="manual_mandiri" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Bank Mandiri (Manual)
                                                         </label>
@@ -290,8 +290,8 @@
                                             <div class="coupon">
                                                 <h3>Coupon</h3>
                                                 <p>Enter your coupon code if you have one.</p>
-                                                <input type="text" placeholder="Coupon code" />
-                                                <input type="submit" value="Apply Coupon" />
+                                                <input type="text" name="coupon" placeholder="Coupon code" />
+                                                <input type="" value="Apply Coupon" />
                                             </div>
                                         </div>
                                         
@@ -309,13 +309,13 @@
                                                     <td>
                                                         <ul id="shipping_method">
                                                             <li>
-                                                                <input type="radio" /> 
+                                                                <input type="radio" name="flat_rate" /> 
                                                                 <label>
                                                                     Tarif Tetap (JABODETABEK) : <span class="amount">20000</span>
                                                                 </label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" /> 
+                                                                <input type="radio" name="pickup_store"/> 
                                                                 <label>
                                                                     Pick Up Store
                                                                 </label>
@@ -328,7 +328,8 @@
                                                 <tr class="order-total">
                                                     <th>Total</th>
                                                     <td>
-                                                        <strong><span class="amount">{{ Cart::getTotal() }}</span></strong>
+                                                        <input type="hidden" name="total" value="{{ Cart::getTotal()+20000 }}" />
+                                                        <strong><span class="amount">{{ Cart::getTotal()+20000 }}</span></strong>
                                                     </td>
                                                 </tr>                                           
                                             </tbody>

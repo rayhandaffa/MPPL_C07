@@ -223,7 +223,7 @@
                                         <div class="row">
                                             <div class="">
                                                 <?php
-                                                    $products = DB::select('select * from produk');
+                                                    $products = DB::select('select * from products');
                                                 ?>
                                                 @foreach($products as $product)
                                                 <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
@@ -270,7 +270,7 @@
                                         <div class="row">
                                             <div class="">
                                                 <?php
-                                                    $products = DB::select('select * from produk where category="cookies"');
+                                                    $products = DB::select('select * from products where category="cookies"');
                                                 ?>
                                                 @foreach($products as $product)
                                                 <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
@@ -306,7 +306,7 @@
                                         <div class="row">
                                             <div class="">
                                                 <?php
-                                                    $products = DB::select('select * from produk where category="brownies"');
+                                                    $products = DB::select('select * from products where category="brownies"');
                                                 ?>
                                                 @foreach($products as $product)
                                                 <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
