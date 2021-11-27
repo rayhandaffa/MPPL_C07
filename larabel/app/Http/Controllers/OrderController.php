@@ -41,7 +41,7 @@ class OrderController extends Controller
             ]);
         }
 		// alihkan halaman ke halaman pegawai
-		 return redirect('/payment');
+		return redirect('/payment');
        
     }
 }
