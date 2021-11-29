@@ -55,3 +55,9 @@ Route::post('/edit-profile', [UserController::class, 'editProfile'])->name('user
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//admin page
+Route::get('/admin/product', function () {
+    return view('admin.product');
+})->name('admin.product');
