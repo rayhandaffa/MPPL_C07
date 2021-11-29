@@ -335,7 +335,7 @@
                                             </tbody>
                                         </table>
                                         <div class="wc-proceed-to-checkout">
-                                            
+                                            <!-- <div id="gdongkir-widget"></div><script type="text/javascript" src="https://ongkos-kirim.com/gdwidget/gdwongkir.js"></script> -->
                                             
                                                 <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Name"/> -->
                                             

@@ -851,75 +851,273 @@
   <div class="content-wrapper">
       <div class="container-fluid">
         <div class="row">
+            <button type="button" class="m-2 btn btn-block btn-success btn-lg col-6" data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
+    
             <div class="col-12">
                 <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Produk</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Produk Tersedia</h3>
 
-                    <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        </div>
+                        
                     </div>
+                    <?php
+                        $products = DB::select('select * from products where status = 1');
+                    ?>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                            <th>Gambar</th>
+                            <th>Nama</th>
+                            <th>Kategori</th>
+                            <th>Deskripsi</th>
+                            <th>Harga</th>
+                            <th>Perbarui Status</th>
+                            <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($products as $product)
+                                <tr>
+                                <td>foto</td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->category}}</td>
+                                <td>{{$product->description}}</td>
+                                <td>{{$product->price}}</td>
+                                <form action="{{ route('product.update.status')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$product->id}}">
+                                    <input type="hidden" name="status" value="{{$product->status}}">
+                                    <td><button type="submit" class="btn bg-secondary"><i class="fas fa-times"></i></button>
+                                </form>
+                                    </td>  
+                                <td>
+                                    <button type="button" class="btn bg-warning" data-toggle="modal" data-target="#modal-edit-{{$product->id}}"><i class="fas fa-edit"></i></button> 
+                                    <button type="submit" class="btn bg-danger" data-toggle="modal" data-target="#modal-delete-{{$product->id}}"><i class="fas fa-trash-alt"></i></button>
+                                </td>   
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        </table>
                     </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                    <thead>
-                        <tr>
-                        <th>Gambar</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Status</th>
-                        <th>Reason</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                        <td>219</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-warning">Pending</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                        <td>657</td>
-                        <td>Bob Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-primary">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-danger">Denied</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </div>
                 <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
             </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Produk Tidak Tersedia</h3>
+
+                    </div>
+                    <?php
+                        $products = DB::select('select * from products where status = 0');
+                    ?>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                            <th>Gambar</th>
+                            <th>Nama</th>
+                            <th>Kategori</th>
+                            <th>Deskripsi</th>
+                            <th>Harga</th>
+                            <th>Perbarui Status</th>
+                            <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($products as $product)
+                                <tr>
+                                <td>foto</td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->category}}</td>
+                                <td>{{$product->description}}</td>
+                                <td>{{$product->price}}</td>
+                                <form action="{{ route('product.update.status')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$product->id}}">
+                                    <input type="hidden" name="status" value="{{$product->status}}">
+                                    <td><button type="submit" class="btn bg-info"><i class="fas fa-arrow-up"></i></button>
+                                </form>
+                                    </td>  
+                                <td>
+                                    <button type="button" class="btn bg-warning" data-toggle="modal" data-target="#modal-edit-{{$product->id}}"><i class="fas fa-edit"></i></button> 
+                                    <button type="submit" class="btn bg-danger" data-toggle="modal" data-target="#modal-delete-{{$product->id}}"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        </table>
+                    </div>
+                <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
         </div>
       </div>
   </div>
+    <!-- Modal Tambah Produk -->
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Tambah Produk</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ route('product.store')}}" method="post">
+                  @csrf
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Produk</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama produk" name="name">
+                  </div>
+                  <div class="form-group">
+                        <label>Kategori</label>
+                        <select class="form-control" name="category">
+                          <option value="cookies">Cookies</option>
+                          <option value="brownies">Brownies</option>
+                        </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Harga</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan harga" name="price">
+                  </div>
+                  <div class="form-group">
+                        <label>Deskripsi Produk</label>
+                        <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi produk" name="description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+              </form>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!-- Modal Edit dan Hapus Produk -->
+    <?php
+        $products2 = DB::select('select * from products');
+    ?>
+    @foreach($products2 as $product)
+    <div class="modal fade" id="modal-edit-{{$product->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Produk</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ route('product.update')}}" method="post">
+                  @csrf
+                  <input type="hidden" value="{{$product->id}}" name="id">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Produk</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" value="{{$product->name}}" name="name">
+                  </div>
+                  <div class="form-group">
+                        <label>Kategori</label>
+                        <select class="form-control" name="category">
+                            @if($product->category == 'cookies')
+                                <option value="cookies" selected="selected">Cookies</option>
+                                <option value="brownies" >Brownies</option>
+                            @else
+                                <option value="cookies" >Cookies</option>
+                                <option value="brownies" selected="selected">Brownies</option>
+                            @endif
+                          
+                        </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Harga</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" value="{{$product->price}}" name="price">
+                  </div>
+                  <div class="form-group">
+                        <label>Deskripsi Produk</label>
+                        <textarea class="form-control" rows="3" value="{{$product->description}}" name="description">{{$product->description}}</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+              </form>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="modal-delete-{{$product->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Hapus Produk</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <h2>Apakah kamu yakin akan menghapus <strong>{{$product->name}}</strong> ?</h2>
+              
+            </div>
+            <div class="modal-footer justify-content-between">
+                <form action="{{ route('product.delete')}}" method="post">
+                  @csrf
+                    <input type="hidden" value="{{$product->id}}" name="id">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+              
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    @endforeach
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>

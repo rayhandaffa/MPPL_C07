@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,3 +62,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/admin/product', function () {
     return view('admin.product');
 })->name('admin.product');
+
+Route::post('/admin/product/store', [ProductController::class, 'addProduct'])->name('product.store');
+Route::post('/admin/product/update-status', [ProductController::class, 'editProductStatus'])->name('product.update.status');
+Route::post('/admin/product/update', [ProductController::class, 'editProduct'])->name('product.update');
+Route::post('/admin/product/delete', [ProductController::class, 'deleteProduct'])->name('product.delete');
