@@ -40,6 +40,10 @@ Route::get('/payment', function () {
     return view('payment');
 })->name('payment');
 
+Route::get('/payment-confirmation', function () {
+    return view('payment-confirm');
+})->name('payment.confirmation');
+
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
@@ -67,3 +71,9 @@ Route::post('/admin/product/store', [ProductController::class, 'addProduct'])->n
 Route::post('/admin/product/update-status', [ProductController::class, 'editProductStatus'])->name('product.update.status');
 Route::post('/admin/product/update', [ProductController::class, 'editProduct'])->name('product.update');
 Route::post('/admin/product/delete', [ProductController::class, 'deleteProduct'])->name('product.delete');
+
+Route::get('/admin/order', function () {
+    return view('admin.order');
+})->name('admin.order');
+Route::post('/admin/order/update-status', [OrderController::class, 'editOrderStatus'])->name('order.update.status');
+// Route::post('/admin/product/store', [ProductController::class, 'addProduct'])->name('product.store');

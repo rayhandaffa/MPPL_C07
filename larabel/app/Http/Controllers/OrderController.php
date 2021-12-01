@@ -21,9 +21,10 @@ class OrderController extends Controller
         //             ('$request->address', '$request->total', 'menunggu_pembayaran', '$current_date_time')");
                 
         DB::table('orders')->insert([
+            'name' => $request->name,
 			'address' => $request->address,
 			'total' => $request->total,
-			'status' => 'menunggu_pembayaran',
+			'status' => 'menunggu_konfirmasi',
 			'payment_status' => null,
             'shipping_method' => 'delivered',
             'payment_method' => 'va_mandiri',
@@ -42,6 +43,21 @@ class OrderController extends Controller
         }
 		// alihkan halaman ke halaman pegawai
 		return redirect('/payment');
+       
+    }
+    
+    public function editOrderStatus(Request $request)
+    {
+        // dd($request);
+        if($request->status == "menunggu_konfirmasi")
+            $new_status = "disiapkan";
+        else    
+            $new_status = 1;
+        
+        DB::table('orders')->where('id',$request->id)->update([
+            'status' => $new_status
+        ]);
+		return redirect('/admin/order');
        
     }
 }
