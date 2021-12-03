@@ -196,25 +196,27 @@
                             <div class="contact-title">
                                 <h2 class="contact__title">Konfirmasi Pembayaran</h2>
                             </div>
-                            <form id="contact-form" action="mail.php" method="post">
-                                
+                            <form action="{{route('order.update.status')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="status" value="menunggu_pembayaran">
                                 <div class="single-contact-form">
                                     <div class="contact-box subject" style="width:25%">
                                         <label for="nomorpesanan">Nomor Pesanan</label>
-                                        <input id="nomorpesanan" type="text" name="subject" placeholder="Masukkan nomor pesanan">
+                                        <input id="nomorpesanan" type="text" name="id" placeholder="Masukkan nomor pesanan">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group" style="margin-top:15px">
                                     <label for="exampleFormControlFile1">Unggah bukti pembayaran</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" name="proof" id="exampleFormControlFile1">
                                 </div>
+                                <!-- <input type="submit" value="submit" />  -->
                                 <div class="contact-btn">
                                     <button type="submit" class="fv-btn">KIRIM</button>
                                 </div>
                             </form>
                         </div> 
-                        
+                       
                     </div>
                     <!-- End Left Feature -->
                 </div>

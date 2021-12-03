@@ -236,7 +236,16 @@
                                                             </div>
                                                             <div class="product__hover__info">
                                                                 <ul class="product__action">
-                                                                    <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
+                                                                    <li>
+                                                                        <!-- <a href="#"><span class="ti-info-alt"></span></a> -->
+                                                                        <form  action="{{ route('product.details.open') }}" method="POST" >
+                                                                        @csrf  
+                                                                            
+                                                                            <input type="hidden" value="{{ $product->id }}" name="id">
+                                                                            
+                                                                            <button> <span class="ti-info-alt"></span> </button>
+                                                                        </form>           
+                                                                    </li>
                                                                     <li>
                                                                         <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                                         @csrf  

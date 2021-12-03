@@ -856,7 +856,7 @@
                 <div class="card-header p-0 pt-1 border-bottom-0">
                   <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="false">Menunggu Pembayaran</a>
+                      <a class="nav-link" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="false">Menunggu Konfirmasi Pembayaran</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Disiapkan</a>
@@ -875,7 +875,7 @@
                       <div class="col-12">
                         <div class="card">
                           <?php
-                            $orders = DB::select('select * from orders where status = "menunggu_pembayaran"');
+                            $orders = DB::select('select * from orders where status = "menunggu_konfirmasi"');
                           ?>
                           <!-- <div class="card-header">
                             <h3 class="card-title">Expandable Table Tree</h3>

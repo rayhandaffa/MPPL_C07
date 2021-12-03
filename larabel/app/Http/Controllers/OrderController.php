@@ -49,7 +49,9 @@ class OrderController extends Controller
     public function editOrderStatus(Request $request)
     {
         // dd($request);
-        if($request->status == "menunggu_konfirmasi")
+        if($request->status == "menunggu_pembayaran")
+            $new_status = "menunggu_konfirmasi";
+        else if($request->status == "menunggu_konfirmasi")
             $new_status = "disiapkan";
         else    
             $new_status = 1;

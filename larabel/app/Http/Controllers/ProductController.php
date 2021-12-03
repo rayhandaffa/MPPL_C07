@@ -61,4 +61,15 @@ class ProductController extends Controller
 		return redirect('/admin/product');
        
     }
+
+    public function openProductDetails(Request $request)
+    {
+        // dd($request);
+        $product = DB::table('products')->where('id',$request->id)->first();
+        // dd($product);
+        return view('product-details', compact('product'));
+		// return redirect('/product-details', compact('product'));
+       
+    }
+
 }
