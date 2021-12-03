@@ -346,7 +346,7 @@
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
                                                             <a href="#">
-                                                                <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
+                                                                <img src="{{asset('images/green.png')}}" alt="product images">
                                                             </a>
                                                         </div>
                                                         <div class="product__hover__info">
@@ -358,7 +358,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product__details">
-                                                        <h2><a href="product-details.html">Simple Black Clock</a></h2>
+                                                        <h2><a href="product-details.html">green cookie</a></h2>
                                                         <ul class="product__price">
                                                             <li class="old__price">$16.00</li>
                                                             <li class="new__price">$10.00</li>
@@ -371,7 +371,7 @@
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
                                                             <a href="#">
-                                                                <img src="images/product/2.png" alt="product images">
+                                                                <img src="{{asset('images/cokies2.png')}}" alt="product images">
                                                             </a>
                                                         </div>
                                                         <div class="product__hover__info">
@@ -383,7 +383,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product__details">
-                                                        <h2><a href="product-details.html">Simple Black Clock</a></h2>
+                                                        <h2><a href="product-details.html">Chocolate Cookies</a></h2>
                                                         <ul class="product__price">
                                                             <li class="old__price">$16.00</li>
                                                             <li class="new__price">$10.00</li>
@@ -396,7 +396,7 @@
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
                                                             <a href="#">
-                                                                <img src="images/product/3.png" alt="product images">
+                                                                <img src="{{asset('images/brown.png')}}" alt="product images">
                                                             </a>
                                                         </div>
                                                         <div class="product__hover__info">
@@ -408,7 +408,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product__details">
-                                                        <h2><a href="product-details.html">Simple Black Clock</a></h2>
+                                                        <h2><a href="product-details.html">Brown Cokies</a></h2>
                                                         <ul class="product__price">
                                                             <li class="old__price">$16.00</li>
                                                             <li class="new__price">$10.00</li>
@@ -421,7 +421,7 @@
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
                                                             <a href="#">
-                                                                <img src="images/product/4.png" alt="product images">
+                                                                <img src="{{asset('images/biskuat.png')}}" alt="product images">
                                                             </a>
                                                         </div>
                                                         <div class="product__hover__info">
@@ -433,7 +433,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product__details">
-                                                        <h2><a href="product-details.html">Simple Black Clock</a></h2>
+                                                        <h2><a href="product-details.html">biskuat Cokies</a></h2>
                                                         <ul class="product__price">
                                                             <li class="old__price">$16.00</li>
                                                             <li class="new__price">$10.00</li>
