@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -25,6 +27,21 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+
+  
+  <style>
+  #deskripsi{
+  
+    width: 100px;            /* adjust the value to fit your needs */
+    
+    display: inline-block;
+
+    white-space: nowrap;
+    overflow: hidden;
+   
+    text-overflow: ellipsis; 
+    }
+    </style>
 </head>
 <body class=" sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -851,8 +868,9 @@
   <div class="content-wrapper">
       <div class="container-fluid">
         <div class="row">
-            <button type="button" class="m-2 btn btn-block btn-success btn-lg col-6" data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
-    
+          
+            <button type="button" style = "left : 450px;  "class="m-4 btn btn-block btn-success btn-lg col-5" data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
+         
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -882,8 +900,8 @@
                                 <tr>
                                 <td><img src="{{asset('product/' .$product->photo)}}" alt="{{$product->name}}" width="50" height="50"></td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->category}}</td>
-                                <td>{{$product->description}}</td>
+                                <td >{{$product->category}}</td>
+                                <td id="deskripsi"> {{$product->description}}</td>
                                 <td>{{$product->price}}</td>
                                 <form action="{{ route('product.update.status')}}" method="post">
                                     @csrf
