@@ -278,13 +278,13 @@
                             <div class="product-action-wrap">
                                 <div class="prodict-statas"><span>Quantity :</span></div>
                                 <div class="product-quantity">
-                                    <form id='myform' method='POST' action='#'>
+                                    <!-- <form id='myform' method='POST' action='#'>
                                         <div class="product-quantity">
                                             <div class="cart-plus-minus">
                                                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                             <ul class="pro__dtl__btn">
@@ -325,66 +325,47 @@
                         <div class="product__details__tab__content">
                             <!-- Start Single Content -->
                             <div class="review__address__inner">
+                                <?php
+                                    $reviews = DB::table('reviews')->where('id_product', $product->id)->get();
+                                    // dd($reviews);
+                                ?>
                                     <!-- Start Single Review -->
-                                    <div class="pro__review">
-                                        <div class="review__thumb">
+                                    @foreach($reviews as $review)
+                                    <div class="pro__review m-4" >
+                                        <!-- <div class="review__thumb">
                                             <img src="images/review/1.jpg" alt="review images">
-                                        </div>
+                                        </div> -->
                                         <div class="review__details">
                                             <div class="review__info">
-                                                <h4><a href="#">Gerald Barnes</a></h4>
+                                                <h4>{{$review->name}}</h4>
                                                 <ul class="rating">
+                                                    <li><h5>{{$review->rating}}/5</h5></li>
                                                     <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
+                                                    <!-- <li><i class="zmdi zmdi-star"></i></li>
                                                     <li><i class="zmdi zmdi-star-half"></i></li>
-                                                    <li><i class="zmdi zmdi-star-half"></i></li>
+                                                    <li><i class="zmdi zmdi-star-half"></i></li> -->
                                                 </ul>
-                                                <div class="rating__send">
+                                                <!-- <div class="rating__send">
                                                     <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
                                                     <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="review__date">
-                                                <span>27 Jun, 2016 at 2:30pm</span>
+                                                <span>{{$review->email}}</span>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget eni Praesent et messages in con sectetur posuere dolor non.</p>
+                                            <p>{{$review->description}}</p>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- End Single Review -->
-                                    <!-- Start Single Review -->
-                                    <div class="pro__review ans">
-                                        <div class="review__thumb">
-                                            <img src="images/review/2.jpg" alt="review images">
-                                        </div>
-                                        <div class="review__details">
-                                            <div class="review__info">
-                                                <h4><a href="#">Gerald Barnes</a></h4>
-                                                <ul class="rating">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star-half"></i></li>
-                                                    <li><i class="zmdi zmdi-star-half"></i></li>
-                                                </ul>
-                                                <div class="rating__send">
-                                                    <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
-                                                    <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="review__date">
-                                                <span>27 Jun, 2016 at 2:30pm</span>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget eni Praesent et messages in con sectetur posuere dolor non.</p>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Review -->
+                                   
                                 </div>
                                 <!-- Start RAting Area -->
                                 <div class="rating__wrap">
                                     <h2 class="rating-title">Write  A review</h2>
                                     <h4 class="rating-title-2">Your Rating</h4>
                                     <form action="{{ route('product.review.store') }}" method="post">
+                                        @csrf
                                         <label for="ratinginput" class="control-label">Give rating for the product:</label>
                                         <input id="ratinginput" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2">
                                         <!-- <input type="submit" name="Submit"/> -->
@@ -392,7 +373,7 @@
                                 </div>
                                 <!-- End RAting Area -->
                                 <div class="review__box">
-                                    
+                                        <input type="hidden" value="{{$product->id}}" name="id">
                                         <div class="single-review-form">
                                             <div class="review-box name">
                                                 <input type="text" name="name" placeholder="Masukkan Nama">
@@ -405,7 +386,7 @@
                                             </div>
                                         </div>
                                         <div class="review-btn">
-                                            <a class="fv-btn"type="submit" href="#">submit review</a>
+                                            <button class="fv-btn" type="submit" >submit review</button>
                                         </div>
                                                                    
                                 </div>

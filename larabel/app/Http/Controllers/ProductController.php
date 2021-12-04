@@ -72,4 +72,23 @@ class ProductController extends Controller
        
     }
 
+    public function addProductReview(Request $request)
+    {
+        // dd($request);
+        // $cartItems = \Cart::getContent();
+        // // dd($cartItems);
+        // $current_date_time = Carbon::now()->toDateTimeString(); 
+        // dd($request);
+        DB::table('reviews')->insert([
+            'rating' => $request->rating,
+			'name' => $request->name,
+			'email' => $request->email,
+			'description' => $request->description,
+			'id_product' => $request->id
+		]);
+
+       
+		return redirect('/product');
+       
+    }
 }
