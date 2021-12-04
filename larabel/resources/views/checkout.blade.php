@@ -200,10 +200,10 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-thumbnail">Gambar</th>
+                                            <th class="product-name">Produk</th>
+                                            <th class="product-price">Harga</th>
+                                            <th class="product-quantity">Jumlah</th>
                                             <th class="product-subtotal">Total</th>
                                             
                                         </tr>
@@ -230,7 +230,7 @@
                                     <div class="ckeckout-left-sidebar">
                                         <!-- Start Checkbox Area -->
                                         <div class="checkout-form">
-                                            <h2 class="section-title-3">Billing details</h2>
+                                            <h2 class="section-title-3">Rincian Pesanan</h2>
                                             <form id="addOrder-form" action="{{ route('order.store') }}" method="POST" >
                                             @csrf  
                                             <div class="checkout-form-inner">
@@ -297,32 +297,32 @@
                                         
                                     </div>
                                     <div class="cart_totals">
-                                        <h2>Cart Totals</h2>
+                                        <h2>Total Pesanan</h2>
                                         <table>
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Subtotal</th>
-                                                    <td><span class="amount">Total: {{ Cart::getTotal() }}</span></td>
+                                                    <td><span class="amount">{{ Cart::getTotal() }}</span></td>
                                                 </tr>
                                                 <tr class="shipping">
-                                                    <th>Shipping</th>
+                                                    <th>Pengiriman</th>
                                                     <td>
                                                         <ul id="shipping_method">
                                                             <li>
                                                                 <input type="radio" name="flat_rate" /> 
                                                                 <label>
-                                                                    Tarif Tetap (JABODETABEK) : <span class="amount">20000</span>
+                                                                    Tarif Tetap (JABODETABEK) <br> <span class="amount">20000</span>
                                                                 </label>
                                                             </li>
                                                             <li>
                                                                 <input type="radio" name="pickup_store"/> 
                                                                 <label>
-                                                                    Pick Up Store
+                                                                    Ambil di toko <br> <span class="amount">gratis</span>
                                                                 </label>
                                                             </li>
                                                             <li></li>
                                                         </ul>
-                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
+                                                        <!-- <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p> -->
                                                     </td>
                                                 </tr>
                                                 <tr class="order-total">

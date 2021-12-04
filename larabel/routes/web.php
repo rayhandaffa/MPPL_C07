@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/product', function () {
+Route::get('/products', function () {
     return view('product');
 })->name('product');
 
@@ -75,7 +75,8 @@ Route::post('/admin/product/store', [ProductController::class, 'addProduct'])->n
 Route::post('/admin/product/update-status', [ProductController::class, 'editProductStatus'])->name('product.update.status');
 Route::post('/admin/product/update', [ProductController::class, 'editProduct'])->name('product.update');
 Route::post('/admin/product/delete', [ProductController::class, 'deleteProduct'])->name('product.delete');
-Route::post('/product/detail', [ProductController::class, 'openProductDetails'])->name('product.details.open');
+Route::get('/product-details/{id}', [ProductController::class, 'openProductDetails'])->name('product.details.open');
+// Route::post('/product/detail', [ProductController::class, 'openProductDetails'])->name('product.details.open');
 Route::post('/product/review/store', [ProductController::class, 'addProductReview'])->name('product.review.store');
 
 Route::get('/admin/order', function () {

@@ -198,17 +198,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="#">               
+                                    
                             <div class="table-content table-responsive">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-thumbnail">Gambar</th>
+                                            <th class="product-name">Produk</th>
+                                            <th class="product-price">Harga</th>
+                                            <th class="product-quantity">Jumlah</th>
                                             <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
+                                            <th class="product-remove">Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -217,16 +217,24 @@
                                         ?>
                                         @foreach ($cartItems as $item)
                                         <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="{{asset('images/contoh_cookies.jpg')}}" alt="product img" /></a></td>
+                                            <td class="product-thumbnail"><a href="#"><img src="{{asset('product/' .$item->attributes->image)}}" alt="{{$item->attributes->image}}"></a></td>
                                             <td class="product-name"><a href="#">{{$item->name}}</a></td>
                                             <td class="product-price"><span class="amount">{{$item->price}}</span></td>
-                                            <td class="product-quantity"><input type="number" value="{{ $item->quantity }}" /></td>
+                                            <td class="product-quantity">
+                                                <form action="{{ route('cart.update') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id}}" >
+                                                    <input type="number" name="quantity" value="{{ $item->quantity }}" 
+                                                    class="w-6 text-center bg-gray-300" />
+                                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
+                                                </form>
+                                            </td>
                                             <td class="product-subtotal">{{$item->price * $item->quantity }}</td>
                                             <td class="product-remove">
                                                 <form id="cartRemove-form" action="{{ route('cart.remove') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" value="{{ $item->id }}" name="id">
-                                                    <a href="javascript:void()" onclick="document.getElementById('cartRemove-form').submit();">X</a>
+                                                    <button style=" background: none; padding: 0px;border: none;">X</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -237,19 +245,13 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-7 col-xs-12">
                                     <div class="buttons-cart">
-                                        <input type="submit" value="Update Cart" />
-                                        <a href="#">Continue Shopping</a>
+                                        <a href="{{route('product')}}">Lanjutkan Belanja</a>
                                     </div>
-                                    <!-- <div class="coupon">
-                                        <h3>Coupon</h3>
-                                        <p>Enter your coupon code if you have one.</p>
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
-                                    </div> -->
+                                    
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
                                     <div class="cart_totals" >
-                                        <h2 style="margin:0 0 0 0">Cart Totals</h2> <br></br>
+                                        <h2 style="margin:0 0 0 0">Total</h2> <br></br>
                                         <h1><strong><span class="amount">{{ Cart::getTotal() }}</span></strong></h1>
                                         <!-- <table>
                                             <tbody>
@@ -287,12 +289,12 @@
                                             </tbody>
                                         </table> -->
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="checkout.html">Proceed to Checkout</a>
+                                            <a href="{{route('checkout')}}">Lanjutkan Checkout</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form> 
+ 
                     </div>
                 </div>
             </div>

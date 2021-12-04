@@ -70,10 +70,10 @@ class ProductController extends Controller
        
     }
 
-    public function openProductDetails(Request $request)
+    public function openProductDetails($id)
     {
-        // dd($request);
-        $product = DB::table('products')->where('id',$request->id)->first();
+        // dd($id);
+        $product = DB::table('products')->where('id',$id)->first();
         // dd($product);
         return view('product-details', compact('product'));
 		// return redirect('/product-details', compact('product'));

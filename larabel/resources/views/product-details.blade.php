@@ -243,11 +243,7 @@
                             <!-- End Small images -->
                             <div class="product__big__images">
                                 <div class="portfolio-full-image tab-content">
-                                    
-                                        <img src="{{asset('images/contoh_cookies.jpg')}}" alt="full-image">
-                                        
-                                    
-                                    
+                                    <img src="{{asset('product/' .$product->photo)}}" alt="{{$product->name}}" width="500" height="500">
                                 </div>
                             </div>
                         </div>
@@ -272,7 +268,7 @@
                             </div>
                             <ul class="pro__dtl__prize">
                                 <!-- <li class="old__prize">$15.21</li> -->
-                                <li>{{$product->price}}</li>
+                                <li>Rp. {{$product->price}}</li>
                             </ul>
                             
                             <div class="product-action-wrap">
@@ -315,7 +311,7 @@
                         <ul class="product__deatils__tab mb--60" role="tablist">
                             
                             <li role="presentation">
-                                <a href="#reviews" role="tab" data-toggle="tab">Reviews</a>
+                                <a href="#reviews" role="tab" data-toggle="tab">Ulasan</a>
                             </li>
                         </ul>
                     </div>
@@ -329,6 +325,7 @@
                                     $reviews = DB::table('reviews')->where('id_product', $product->id)->get();
                                     // dd($reviews);
                                 ?>
+                                @if($reviews != null)
                                     <!-- Start Single Review -->
                                     @foreach($reviews as $review)
                                     <div class="pro__review m-4" >
@@ -358,7 +355,9 @@
                                     </div>
                                     @endforeach
                                     <!-- End Single Review -->
-                                   
+                                @else
+                                    <h4>Belum ada ulasan</h4>
+                                @endif
                                 </div>
                                 <!-- Start RAting Area -->
                                 <div class="rating__wrap">

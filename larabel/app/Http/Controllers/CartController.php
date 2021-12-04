@@ -10,7 +10,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('cart', compact('cartItems'));
+        return view('cart2', compact('cartItems'));
     }
 
 
@@ -49,7 +49,7 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        dd($request);
+        // dd($request);
         \Cart::remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
