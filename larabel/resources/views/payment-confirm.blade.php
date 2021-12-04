@@ -196,7 +196,7 @@
                             <div class="contact-title">
                                 <h2 class="contact__title">Konfirmasi Pembayaran</h2>
                             </div>
-                            <form action="{{route('order.update.status')}}" method="post">
+                            <form action="{{route('order.update.status')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="status" value="menunggu_pembayaran">
                                 <div class="single-contact-form">

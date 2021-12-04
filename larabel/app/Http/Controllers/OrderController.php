@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
     public function addOrder(Request $request)
     {
+        // dd($request);
         $cartItems = \Cart::getContent();
         // dd($cartItems);
         $current_date_time = Carbon::now()->toDateTimeString();
@@ -45,10 +48,20 @@ class OrderController extends Controller
 		return redirect('/payment');
        
     }
-    
+   
     public function editOrderStatus(Request $request)
     {
-        // dd($request);
+        
+
+        // $name = $request->file('proof')->getClientOriginalName();
+ 
+        // // $path = $request->file('proof')->store('public/product');
+        // $path = $request->file('proof')->storeAs(
+        //     'product', $name
+        // );
+            
+        // dd($name, $path);
+
         if($request->status == "menunggu_pembayaran")
             $new_status = "menunggu_konfirmasi";
         else if($request->status == "menunggu_konfirmasi")
