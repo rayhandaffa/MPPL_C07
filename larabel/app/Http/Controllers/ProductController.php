@@ -11,16 +11,19 @@ class ProductController extends Controller
 {
     public function addProduct(Request $request)
     {
-        // dd($request);
-        // $cartItems = \Cart::getContent();
-        // // dd($cartItems);
-        // $current_date_time = Carbon::now()->toDateTimeString(); 
+        $name = $request->file('photo')->getClientOriginalName();
+ 
+        // $path = $request->file('photo')->storeAs('product', $name);
+        $path = $request->file('photo')->storeAs('', $name, 'product_file');
+            
+        // dd($name, $path);
         DB::table('products')->insert([
 			'name' => $request->name,
 			'price' => $request->price,
 			'description' => $request->description,
 			'category' => $request->category,
-            'status' => 1
+            'status' => 1,
+            'photo' => $path
 		]);
 
        
@@ -45,11 +48,16 @@ class ProductController extends Controller
     public function editProduct(Request $request)
     {
         // dd($request);
+        $name = $request->file('photo')->getClientOriginalName();
+ 
+        // $path = $request->file('photo')->storeAs('product', $name);
+        $path = $request->file('photo')->storeAs('', $name, 'product_file');
         DB::table('products')->where('id',$request->id)->update([
             'name' => $request->name,
             'price' => $request->price,
             'category' => $request->category,
-            'description' => $request->description
+            'description' => $request->description,
+            'photo' => $path
         ]);
 		return redirect('/admin/product');
        

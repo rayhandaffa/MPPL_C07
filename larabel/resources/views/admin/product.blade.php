@@ -880,7 +880,7 @@
                         <tbody>
                             @foreach($products as $product)
                                 <tr>
-                                <td>foto</td>
+                                <td><img src="{{asset('product/' .$product->photo)}}" alt="{{$product->name}}" width="50" height="50"></td>
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->category}}</td>
                                 <td>{{$product->description}}</td>
@@ -931,7 +931,7 @@
                         <tbody>
                             @foreach($products as $product)
                                 <tr>
-                                <td>foto</td>
+                                <td><img src="{{asset('product/' .$product->photo)}}" alt="{{$product->name}}" width="100" height="100"></td>
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->category}}</td>
                                 <td>{{$product->description}}</td>
@@ -970,7 +970,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="{{ route('product.store')}}" method="post">
+              <form action="{{ route('product.store')}}" method="post" enctype="multipart/form-data">
                   @csrf
                 <div class="card-body">
                   <div class="form-group">
@@ -996,7 +996,7 @@
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" name="photo" id="exampleInputFile">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                       <div class="input-group-append">
@@ -1034,7 +1034,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="{{ route('product.update')}}" method="post">
+              <form action="{{ route('product.update')}}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" value="{{$product->id}}" name="id">
                 <div class="card-body">
@@ -1067,7 +1067,7 @@
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" name="photo" id="exampleInputFile">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                       <div class="input-group-append">
