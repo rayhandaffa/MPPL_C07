@@ -255,7 +255,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="ovo" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="payment_method" value="ovo" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             OVO
                                                         </label>
@@ -264,7 +264,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="va_mandiri" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="payment_method" value="va_mandiri" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Bank Mandiri (Virtual Account)
                                                         </label>
@@ -273,7 +273,7 @@
                                                 <li class="list-group-item">
                                                 <!-- Default checked -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="manual_mandiri" id="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="payment_method" value ="manual_mandiri" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Bank Mandiri (Manual)
                                                         </label>

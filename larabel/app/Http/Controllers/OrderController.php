@@ -30,7 +30,7 @@ class OrderController extends Controller
 			'status' => 'menunggu_konfirmasi',
 			'payment_status' => null,
             'shipping_method' => 'delivered',
-            'payment_method' => 'va_mandiri',
+            'payment_method' => $request->payment_method,
             'id_user' => null
 		]);
 
