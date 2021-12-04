@@ -184,6 +184,26 @@
             </div>
             <!-- End Cart Panel -->
         </div>
+        <!-- Start Feature Product -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Product</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor">/</span>
+                                  <span class="breadcrumb-item active">Products</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
         <!-- End Offset Wrapper -->
         <section class="htc__product__area shop__page ptb--130 bg__white">
             <div class="container">
@@ -219,6 +239,7 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content another-product-style jump">
+                                    <!-- tab all product -->
                                     <div class="tab-pane active" id="home1">
                                         <div class="row">
                                             <div class="">
@@ -230,32 +251,26 @@
                                                     <div class="product">
                                                         <div class="product__inner">
                                                             <div class="pro__thumb">
-                                                                <a href="#">
-                                                                    <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images">
+                                                                <a href="{{ route('product.details.open', ['id' => $product->id]) }}">
+                                                                    <img src="{{asset('product/' .$product->photo)}}" alt="{{$product->name}}">
+                                                                    <!-- <img src="{{asset('images/contoh_cookies.jpg')}}" alt="product images"> -->
                                                                 </a>
                                                             </div>
                                                             <div class="product__hover__info">
                                                                 <ul class="product__action">
+                                                                    <li><a title="Product Details" href="{{ route('product.details.open', ['id' => $product->id]) }}"><span class="ti-info-alt"></span></a></li>
                                                                     <li>
-                                                                        <!-- <a href="#"><span class="ti-info-alt"></span></a> -->
-                                                                        <form  action="{{ route('product.details.open') }}" method="POST" >
-                                                                        @csrf  
-                                                                            
-                                                                            <input type="hidden" value="{{ $product->id }}" name="id">
-                                                                            
-                                                                            <button> <span class="ti-info-alt"></span> </button>
-                                                                        </form>           
-                                                                    </li>
-                                                                    <li>
-                                                                        <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                                        <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" >
                                                                         @csrf  
                                                                             <!-- <input type="reset"> -->
+                                                                            <input type="hidden" value="{{ $product->photo }}" name="image">
                                                                             <input type="hidden" value="{{ $product->id }}" name="id">
                                                                             <input type="hidden" value="{{ $product->name }}" name="name">
                                                                             <input type="hidden" value="{{ $product->price }}" name="price">
-                                                                            <input type="hidden" value="bentar belum"  name="image">
+                                                                            <!-- <input type="hidden" value="bentar belum"  name="image"> -->
                                                                             <input type="hidden" value="1" name="quantity">
-                                                                            <button> <span class="ti-shopping-cart"></span> </button>
+                                                                            <!-- <a href="javascript:void()" onclick="document.getElementById('addToCart-form').submit();"><span class="ti-shopping-cart"></span></a> -->
+                                                                            <button style=" background: none; padding: 0px;border: none;"> <span class="ti-shopping-cart"></span> </button>
                                                                         </form>
                                                                     </li>
                                                                     <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
@@ -263,7 +278,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="product__details">
-                                                            <h2><a href="product-details.html">{{$product->name}}</a></h2>
+                                                            <h2><a href="{{ route('product.details.open', ['id' => $product->id]) }}">{{$product->name}}</a></h2>
                                                             <ul class="product__price">
                                                                 <!-- <li class="old__price">$16.00</li> -->
                                                                 <li class="new__price">{{$product->price}}</li>
@@ -275,6 +290,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- tab cookies product -->
                                     <div class="tab-pane" id="home2">
                                         <div class="row">
                                             <div class="">
@@ -311,6 +327,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- tab brownies product -->
                                     <div class="tab-pane" id="home3">
                                         <div class="row">
                                             <div class="">
