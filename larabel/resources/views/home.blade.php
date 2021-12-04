@@ -289,15 +289,17 @@
                                                             <ul class="product__action">
                                                                 <li><a title="Product Details" href="{{ route('product.details.open', ['id' => $product->id]) }}"><span class="ti-info-alt"></span></a></li>
                                                                 <li>
-                                                                    <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                                    <form id="addToCart-form" action="{{ route('cart.store') }}" method="POST" >
                                                                     @csrf  
                                                                         <!-- <input type="reset"> -->
+                                                                        <input type="hidden" value="{{ $product->photo }}" name="image">
                                                                         <input type="hidden" value="{{ $product->id }}" name="id">
                                                                         <input type="hidden" value="{{ $product->name }}" name="name">
                                                                         <input type="hidden" value="{{ $product->price }}" name="price">
-                                                                        <input type="hidden" value="bentar belum"  name="image">
+                                                                        <!-- <input type="hidden" value="bentar belum"  name="image"> -->
                                                                         <input type="hidden" value="1" name="quantity">
-                                                                        <button> <span class="ti-shopping-cart"></span> </button>
+                                                                        <!-- <a href="javascript:void()" onclick="document.getElementById('addToCart-form').submit();"><span class="ti-shopping-cart"></span></a> -->
+                                                                        <button style=" background: none; padding: 0px;border: none;"> <span class="ti-shopping-cart"></span> </button>
                                                                     </form>
                                                                 </li>
                                                                 <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>

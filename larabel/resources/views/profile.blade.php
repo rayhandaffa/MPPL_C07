@@ -6,6 +6,9 @@
     <title>CokiesDessert</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
@@ -28,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('template/css/responsive.css')}}">
     <!-- User style -->
     <link rel="stylesheet" href="{{ asset('template/css/custom.css')}}">
-
+   
 
     <!-- Modernizr JS -->
     <script src="{{ asset('template/js/vendor/modernizr-2.8.3.min.js')}}"></script>
@@ -242,13 +245,16 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <ul class="product__deatils__tab mb--60" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#description" role="tab" data-toggle="tab">Pesanan</a>
+                                <a href="#description" role="tab" data-toggle="tab">Menunggu Pembayaran</a>
                             </li>
                             <li role="presentation">
-                                <a href="#sheet" role="tab" data-toggle="tab">Data sheet</a>
+                                <a href="#sheet" role="tab" data-toggle="tab">Disiapkan</a>
                             </li>
                             <li role="presentation">
-                                <a href="#reviews" role="tab" data-toggle="tab">Reviews</a>
+                                <a href="#reviews" role="tab" data-toggle="tab">Dikirim</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#selesai" role="tab" data-toggle="tab">Selesai</a>
                             </li>
                         </ul>
                     </div>
@@ -258,56 +264,76 @@
                         <div class="product__details__tab__content">
                             <!-- Start Single Content -->
                             <div role="tabpanel" id="description" class="product__tab__content fade in active">
-                                <div class="wishlist-table table-responsive">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class=""><span class="nobr">No. Pesanan</span></th>
-                                                <th class="product-thumbnail">Image</th>
-                                                <th class="product-name"><span class="nobr">Product Name</span></th>
-                                                <th class="product-price"><span class="nobr"> Unit Price </span></th>
-                                                <th class="product-stock-stauts"><span class="nobr"> Stock Status </span></th>
-                                                <th class="product-add-to-cart"><span class="nobr">Add To Cart</span></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="product-remove"><a href="#">×</a></td>
-                                                <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="" /></a></td>
-                                                <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                                <td class="product-price"><span class="amount">£165.00</span></td>
-                                                <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
-                                                <td class="product-add-to-cart"><a href="#"> Add to Cart</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-remove"><a href="#">×</a></td>
-                                                <td class="product-thumbnail"><a href="#"><img src="images/product/5.png" alt="" /></a></td>
-                                                <td class="product-name"><a href="#">Vestibulum dictum magna</a></td>
-                                                <td class="product-price"><span class="amount">£50.00</span></td>
-                                                <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
-                                                <td class="product-add-to-cart"><a href="#"> Add to Cart</a></td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="6">
-                                                    <div class="wishlist-share">
-                                                        <h4 class="wishlist-share-title">Share on:</h4>
-                                                        <div class="social-icon">
-                                                            <ul>
-                                                                <li><a href="#"><i class="zmdi zmdi-rss"></i></a></li>
-                                                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                                                                <li><a href="#"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                                                <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                                                <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div> 
+                                <?php
+                                    $orders = DB::table('orders')->get();
+                                    // $orders = DB::table('orders')->where('status', ['menunggu_pembayaran', 'menunggu_konfirmasi'])
+                                    //                             ->where('id_user', Auth::user()->id)  
+                                    //                             ->get();
+                                ?>
+                                <div class="accordion" id="myAccordion">
+                                    @foreach($orders as $order)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-{{$order->id}}">No Pesanan. {{$order->id}} <br> {{$order->created_at}} <br>{{$order->total}}</button>									
+                                        </h2>
+                                        <div id="collapse-{{$order->id}}" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                                        <?php
+                                            $order_details = DB::select("select * from order_details where id_order = $order->id");
+                                        ?>
+                                            <ul class="list-group mb-0" >
+                                                @foreach($order_details as $detail)
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <?php
+                                                        $product_name = DB::table('products')->where('id', $detail->id_product)->first()->name;
+                                                        $product_price = DB::table('products')->where('id', $detail->id_product)->first()->price;
+                                                    ?>
+                                                    
+                                                    {{$detail->quantity}}x {{$product_name}}
+                                                    <span class="badge badge-primary badge-pill">{{$detail->quantity * $product_price }}</span>
+                                                </li>
+                                                 @endforeach
+                                            </ul>
+                                            <p style="margin-left: 15px">Metode Pembayaran : {{$order->payment_method}}</p>
+                                            @if($order->status == "menunggu_pembayaran")
+                                            <form action="{{route('order.update.status')}}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="status" value="menunggu_pembayaran">
+                                                <input type="hidden" name="id" value="{{$order->id}}">
+                                                <div class="form-group" style="margin-left:15px">
+                                                    <label for="exampleFormControlFile1">Unggah bukti pembayaran</label>
+                                                    <input type="file" class="form-control-file" name="proof" id="exampleFormControlFile1">
+                                                </div>
+                                                <!-- <input type="submit" value="submit" />  -->
+                                                <div class="contact-btn" style="margin-left:15px">
+                                                    <button type="submit">KIRIM</button>
+                                                </div>
+                                            </form>
+                                            @endif
+                                        </div>
+                                        
+                                    </div>
+                                    @endforeach
+                                    <!-- <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">2. What is Bootstrap?</button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#myAccordion">
+                                            <div class="card-body">
+                                                <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">3. What is CSS?</button>                     
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                                            <div class="card-body">
+                                                <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->

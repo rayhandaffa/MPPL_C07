@@ -48,6 +48,11 @@ Route::get('/payment-confirmation', function () {
     return view('payment-confirm');
 })->name('payment.confirmation');
 
+Route::get('/order/check', function () {
+    $order = null;
+    return view('check-status', compact('order'));
+})->name('order.check');
+
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
@@ -83,4 +88,5 @@ Route::get('/admin/order', function () {
     return view('admin.order');
 })->name('admin.order');
 Route::post('/admin/order/update-status', [OrderController::class, 'editOrderStatus'])->name('order.update.status');
+Route::post('/order/check-status', [OrderController::class, 'checkOrderStatus'])->name('order.check.status');
 // Route::post('/admin/product/store', [ProductController::class, 'addProduct'])->name('product.store');

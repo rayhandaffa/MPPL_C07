@@ -27,11 +27,12 @@ class OrderController extends Controller
             'name' => $request->name,
 			'address' => $request->address,
 			'total' => $request->total,
-			'status' => 'menunggu_konfirmasi',
+			'status' => 'menunggu_pembayaran',
 			'payment_status' => null,
-            'shipping_method' => 'delivered',
+            'shipping_method' => $request->shipping_method,
             'payment_method' => $request->payment_method,
-            'id_user' => null
+            'id_user' => null,
+            'created_at' => \Carbon\Carbon::now()
 		]);
 
         $order_id = DB::table('orders')->orderBy('id', 'desc')->first()->id;
@@ -66,13 +67,23 @@ class OrderController extends Controller
             $new_status = "menunggu_konfirmasi";
         else if($request->status == "menunggu_konfirmasi")
             $new_status = "disiapkan";
+        else if($request->status == "disiapkan")
+            $new_status = "dikirim";
         else    
-            $new_status = 1;
+            $new_status = "selesai";
         
         DB::table('orders')->where('id',$request->id)->update([
             'status' => $new_status
         ]);
 		return redirect('/admin/order');
+       
+    }
+
+    public function checkOrderStatus(Request $request)
+    {
+        $order = DB::table('orders')->where('id',$request->id)->first();
+        
+		return view('check-status', compact('order'));
        
     }
 }

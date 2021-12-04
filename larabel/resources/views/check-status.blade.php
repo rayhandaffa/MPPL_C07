@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CokiesDessert</title>
+    <title>Tmart-Minimalist eCommerce HTML5 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -32,8 +32,6 @@
 
     <!-- Modernizr JS -->
     <script src="{{ asset('template/js/vendor/modernizr-2.8.3.min.js')}}"></script>
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -187,175 +185,45 @@
             <!-- End Cart Panel -->
         </div>
         <!-- End Offset Wrapper -->
-        <div class="bradcaump__inner text-center">
-            <h2 class="bradcaump-title">Checkout </h2>
-        </div>
-        <!-- cart-main-area start -->
-        <div class="cart-main-area ptb--120 bg__white">
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <!-- <form action="#">                -->
-                            <div class="table-content table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="product-thumbnail">Gambar</th>
-                                            <th class="product-name">Produk</th>
-                                            <th class="product-price">Harga</th>
-                                            <th class="product-quantity">Jumlah</th>
-                                            <th class="product-subtotal">Total</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                           $cartItems = \Cart::getContent();
-                                        ?>
-                                        @foreach ($cartItems as $item)
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="{{asset('images/contoh_cookies.jpg')}}" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">{{$item->name}}</a></td>
-                                            <td class="product-price"><span class="amount">{{$item->price}}</span></td>
-                                            <td class="product-quantity"><span class="amount">{{ $item->quantity }}</span></td>
-                                            <td class="product-subtotal">{{$item->price * $item->quantity }}</td>
-                                            
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-lg-8">
-                                    <div class="ckeckout-left-sidebar">
-                                        <!-- Start Checkbox Area -->
-                                        <div class="checkout-form">
-                                            <h2 class="section-title-3">Rincian Pesanan</h2>
-                                            <form id="addOrder-form" action="{{ route('order.store') }}" method="POST" >
-                                            @csrf  
-                                            <div class="checkout-form-inner">
-                                                <div class="single-checkout-box" >
-                                                    <input style="width:100%;" name="name" type="text" placeholder="Nama*">
-                                                </div>
-                                                <div class="single-checkout-box">
-                                                    <input name="email" type="email" placeholder="Email*">
-                                                    <input name="handphone" type="text" placeholder="Nomor Handphone*">
-                                                </div>
-                                                <div class="single-checkout-box">
-                                                    <textarea name="address" placeholder="Alamat*"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Checkbox Area -->
-                                        <!-- Start Payment Box -->
-                                        <div class="payment-form" style="width:50%;">
-                                            <h2 class="section-title-3" style="padding:10px;">payment methods</h2>
-                                            <!-- <p>Lorem ipsum dolor sit amet, consectetur kgjhyt</p> -->
-                                            <ul class="list-group list-group-flush" style="padding-left:30px;">
-                                                <li class="list-group-item">
-                                                <!-- Default checked -->
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="payment_method" value="Ovo" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            OVO
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                <!-- Default checked -->
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="payment_method" value="Virtual Account Mandiri" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Bank Mandiri (Virtual Account)
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                <!-- Default checked -->
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="payment_method" value ="Bank Mandiri" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Bank Mandiri (Manual)
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- End Payment Box -->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-5 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="coupon">
-                                                <h3>Coupon</h3>
-                                                <p>Enter your coupon code if you have one.</p>
-                                                <input type="text" name="coupon" placeholder="Coupon code" />
-                                                <input type="" value="Apply Coupon" />
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="cart_totals">
-                                        <h2>Total Pesanan</h2>
-                                        <table>
-                                            <tbody>
-                                                <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td><span class="amount">{{ Cart::getTotal() }}</span></td>
-                                                </tr>
-                                                <tr class="shipping">
-                                                    <th>Pengiriman</th>
-                                                    <td>
-                                                        <ul id="shipping_method">
-                                                            <li>
-                                                                <input type="radio" name="shipping_method" value="Delivery"/> 
-                                                                <label>
-                                                                    Tarif Tetap (JABODETABEK) <br> <span class="amount">20000</span>
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="radio" name="shipping_method" value="Pickup Store"/> 
-                                                                <label>
-                                                                    Ambil di toko <br> <span class="amount">gratis</span>
-                                                                </label>
-                                                            </li>
-                                                            <li></li>
-                                                        </ul>
-                                                        <!-- <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p> -->
-                                                    </td>
-                                                </tr>
-                                                <tr class="order-total">
-                                                    <th>Total</th>
-                                                    <td>
-                                                        <input type="hidden" name="total" value="{{ Cart::getTotal()+20000 }}" />
-                                                        <strong><span class="amount">{{ Cart::getTotal()+20000 }}</span></strong>
-                                                    </td>
-                                                </tr>                                           
-                                            </tbody>
-                                        </table>
-                                        <div class="wc-proceed-to-checkout">
-                                            <!-- <div id="gdongkir-widget"></div><script type="text/javascript" src="https://ongkos-kirim.com/gdwidget/gdwongkir.js"></script> -->
-                                            
-                                                <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Name"/> -->
-                                            
-                                                <!-- <button> <span class="ti-shopping-cart"></span> </button> -->
-                                                <button type="submit">Proceed to Checkout</button>
-                                            </form>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Start Left Feature -->
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="htc__contact__container">
                             
-                        <!-- </form>  -->
+                            <div class="contact-title">
+                                <h2 class="contact__title">Cek Status Pesanan</h2>
+                            </div>
+                            <form action="{{route('order.check.status')}}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                
+                                <div class="single-contact-form">
+                                    <div class="contact-box subject" style="width:25%">
+                                        <label for="nomorpesanan">Nomor Pesanan</label>
+                                        <input id="nomorpesanan" type="text" name="id" placeholder="Masukkan nomor pesanan">
+                                    </div>
+                                </div>
+                                
+                                <!-- <input type="submit" value="submit" />  -->
+                                <div class="contact-btn">
+                                    <button type="submit" class="fv-btn">KIRIM</button>
+                                </div>
+                            </form>
+                        </div> 
+                       
                     </div>
+                    @if($order != null)
+                        {{$order-> id}} ---> {{$order->status}}
+                    @endif
+                    <!-- End Left Feature -->
                 </div>
             </div>
-        </div>
-
+        </section>
+        <!-- End Feature Product -->
+       
         
-        <!-- cart-main-area end -->
         
         <!-- Start Footer Area -->
         <footer class="htc__foooter__area gray-bg">
