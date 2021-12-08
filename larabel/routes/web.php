@@ -17,8 +17,14 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
+    // dd(Auth::user());
     return view('home');
 })->name('home');
+
+Route::get('/dd', function () {
+    dd(Auth::user);
+    // return view('home');
+});
 
 Route::get('/products', function () {
     return view('product');
@@ -30,7 +36,7 @@ Route::get('/product-details', function () {
 
 Route::get('/login2', function () {
     return view('login');
-});
+})->name('login-register');
 
 Route::get('/cart2', function () {
     return view('cart2');
