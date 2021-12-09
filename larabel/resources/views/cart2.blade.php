@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('template/css/responsive.css')}}">
     <!-- User style -->
     <link rel="stylesheet" href="{{ asset('template/css/custom.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Modernizr JS -->
@@ -92,7 +93,7 @@
                                                 <form id="cartRemove-form" action="{{ route('cart.remove') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" value="{{ $item->id }}" name="id">
-                                                    <button style=" background: none; padding: 0px;border: none;">X</button>
+                                                    <button style=" border-radius: 12px; border: none;"><i class="fa fa-close"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

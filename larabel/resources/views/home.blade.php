@@ -55,7 +55,7 @@
                                 <!-- Start Single Slide -->
                                 <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
                                     <div class="container">
-                                        <img src="{{ asset('template/images/logo_besar.png')}}" alt="logo">
+                                        <img src="{{ asset('images/cokies_depan.png')}}" alt="logo">
                                     </div>
                                 </div>
                                 <!-- End Single Slide -->

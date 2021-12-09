@@ -232,7 +232,7 @@
                                             </div>
                                         </div>
                                         <div class="review-btn">
-                                            <button class="fv-btn" type="submit" >Kirim</button>
+                                            <button class="btn btn-danger" type="submit" >Kirim</button>
                                         </div>
                                                                    
                                 </div>
