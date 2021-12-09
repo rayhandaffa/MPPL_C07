@@ -109,9 +109,7 @@
             </div>
         </section>
         <!-- End Feature Product -->
-       
-        
-        
+
         <!-- Start Footer Area -->
         @include('partial.footer')
         <!-- End Footer Area -->
