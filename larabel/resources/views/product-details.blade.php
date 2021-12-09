@@ -131,7 +131,7 @@
                                     </form>
                             </ul>
                             <div class="pro__social__share">
-                                <h2>Share :</h2>
+                                <h2>Bagikan :</h2>
                                 <ul class="pro__soaial__link">
                                     <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
                                     <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
@@ -202,15 +202,20 @@
                                 @endif
                                 </div>
                                 <!-- Start RAting Area -->
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <ul class="product__deatils__tab mb--60" role="tablist">
+                                        
+                                        <li role="presentation">
+                                            <a  role="tab" data-toggle="tab">Tulis Ulasan</a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="rating__wrap">
-                                    <h2 class="rating-title">Write  A review</h2>
-                                    <h4 class="rating-title-2">Your Rating</h4>
                                     <form action="{{ route('product.review.store') }}" method="post">
                                         @csrf
-                                        <label for="ratinginput" class="control-label">Give rating for the product:</label>
+                                        <label for="ratinginput" class="control-label">Berikan bintang untuk produk ini:</label>
                                         <input id="ratinginput" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2">
                                         <!-- <input type="submit" name="Submit"/> -->
-                                    
                                 </div>
                                 <!-- End RAting Area -->
                                 <div class="review__box">
@@ -227,7 +232,7 @@
                                             </div>
                                         </div>
                                         <div class="review-btn">
-                                            <button class="fv-btn" type="submit" >submit review</button>
+                                            <button class="fv-btn" type="submit" >Kirim</button>
                                         </div>
                                                                    
                                 </div>

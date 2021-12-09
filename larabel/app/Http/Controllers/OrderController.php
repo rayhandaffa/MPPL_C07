@@ -17,11 +17,6 @@ class OrderController extends Controller
         $cartItems = \Cart::getContent();
         // dd($cartItems);
         $current_date_time = Carbon::now()->toDateTimeString();
-        // dd($current_date_time);
-        // dd(Auth::user(),$cartItems,$request);
-        // dd($request->address);
-        // DB::insert("insert into order (address, total, status, time) values 
-        //             ('$request->address', '$request->total', 'menunggu_pembayaran', '$current_date_time')");
                 
         DB::table('orders')->insert([
             'name' => $request->name,
@@ -31,7 +26,7 @@ class OrderController extends Controller
 			'payment_status' => null,
             'shipping_method' => $request->shipping_method,
             'payment_method' => $request->payment_method,
-            'id_user' => null,
+            'id_user' => $request->user_id,
             'created_at' => \Carbon\Carbon::now()
 		]);
 
@@ -52,17 +47,6 @@ class OrderController extends Controller
    
     public function editOrderStatus(Request $request)
     {
-        
-
-        // $name = $request->file('proof')->getClientOriginalName();
- 
-        // // $path = $request->file('proof')->store('public/product');
-        // $path = $request->file('proof')->storeAs(
-        //     'product', $name
-        // );
-            
-        // dd($name, $path);
-
         if($request->status == "menunggu_pembayaran")
             $new_status = "menunggu_konfirmasi";
         else if($request->status == "menunggu_konfirmasi")
@@ -75,8 +59,11 @@ class OrderController extends Controller
         DB::table('orders')->where('id',$request->id)->update([
             'status' => $new_status
         ]);
-		return redirect('/admin/order');
-       
+
+        if($new_status == "menunggu_konfirmasi")
+            return redirect('/');
+        else
+		    return redirect('/admin/order');
     }
 
     public function checkOrderStatus(Request $request)

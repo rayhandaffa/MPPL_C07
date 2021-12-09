@@ -22,7 +22,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dd', function () {
-    dd(Auth::user);
+    dd(Auth::user());
     // return view('home');
 });
 

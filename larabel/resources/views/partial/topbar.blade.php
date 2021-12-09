@@ -31,7 +31,7 @@
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                         <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
                         @if(Auth::user() != null)
-                        <li><a href="{{route('login-register')}}"><span class="ti-user"></span></a></li>
+                        <li><a href="{{route('profile')}}"><span class="ti-user"></span></a></li>
                         @else
                         <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
                         @endif
@@ -155,7 +155,7 @@
             </div>
             <ul class="shoping__total">
                 <li class="subtotal">Subtotal:</li>
-                <li class="total__price">${{ Cart::getTotal() }}</li>
+                <li class="total__price">Rp. {{ Cart::getTotal() }}</li>
             </ul>
             <ul class="shopping__btn">
                 <li><a href="{{route('cart.list')}}">Lihat Keranjang</a></li>
