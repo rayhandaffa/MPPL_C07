@@ -46,9 +46,8 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
-Route::get('/payment', function () {
-    return view('payment');
-})->name('payment');
+
+Route::get('/payment/{id}', [OrderController::class, 'openPayment'])->name('payment');
 
 Route::get('/payment-confirmation', function () {
     return view('payment-confirm');
@@ -76,7 +75,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
 //admin page
 Route::get('/admin/product', function () {
     return view('admin.product');
@@ -87,7 +85,6 @@ Route::post('/admin/product/update-status', [ProductController::class, 'editProd
 Route::post('/admin/product/update', [ProductController::class, 'editProduct'])->name('product.update');
 Route::post('/admin/product/delete', [ProductController::class, 'deleteProduct'])->name('product.delete');
 Route::get('/product-details/{id}', [ProductController::class, 'openProductDetails'])->name('product.details.open');
-// Route::post('/product/detail', [ProductController::class, 'openProductDetails'])->name('product.details.open');
 Route::post('/product/review/store', [ProductController::class, 'addProductReview'])->name('product.review.store');
 
 Route::get('/admin/order', function () {

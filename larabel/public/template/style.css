@@ -799,7 +799,7 @@
     position: relative;
 }
 .modal-dialog.modal__container {
-    width: 1170px;
+    width: 500px;
 }
 .modal-product {
     display: flex;

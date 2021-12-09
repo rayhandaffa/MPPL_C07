@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Tmart-Minimalist eCommerce HTML5 Template</title>
+    <title>CokiesDessert</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -41,150 +41,9 @@
 
     <!-- Body main wrapper start -->
     <div class="wrapper fixed__footer">
-        <!-- Start Header Style -->
-        <header id="header" class="htc-header header--3 bg__white">
-            <!-- Start Mainmenu Area -->
-            @include('partial.topbar')
-            <!-- End Mainmenu Area -->
-        </header>
-        <!-- End Header Style -->
         
-        <div class="body__overlay"></div>
-        <!-- Start Offset Wrapper -->
-        <div class="offset__wrapper">
-            <!-- Start Search Popap -->
-            <div class="search__area">
-                <div class="container" >
-                    <div class="row" >
-                        <div class="col-md-12" >
-                            <div class="search__inner">
-                                <form action="#" method="get">
-                                    <input placeholder="Search here... " type="text">
-                                    <button type="submit"></button>
-                                </form>
-                                <div class="search__close__btn">
-                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Search Popap -->
-            <!-- Start Offset MEnu -->
-            <div class="offsetmenu">
-                <div class="offsetmenu__inner">
-                    <div class="offsetmenu__close__btn">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </div>
-                    <div class="off__contact">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="{{asset('template/images/logo_kecil.jpg')}}" alt="logo">
-                            </a>
-                        </div>
-                        <p>Gabung menjadi member untuk mendapatkan potongan harga di setiap pembeliannya!</p>
-                    </div>
-                    <!-- <ul class="sidebar__thumd"> -->
-                        <div class="btn-info mt--30">
-                            <a href="#">DAFTAR SEKARANG</a>
-                        </div>
-                        <p>Sudah terdaftar? <a href="">Masuk</a></p>
-                        <!-- <li><a href="#"><img src="images/sidebar-img/1.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/2.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/3.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/4.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/5.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/6.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/7.jpg" alt="sidebar images"></a></li>
-                        <li><a href="#"><img src="images/sidebar-img/8.jpg" alt="sidebar images"></a></li> -->
-                    <!-- </ul> -->
-                    <div class="offset__widget">
-                        <div class="offset__single">
-                            <h4 class="offset__title">Language</h4>
-                            <ul>
-                                <li><a href="#"> Engish </a></li>
-                                <li><a href="#"> French </a></li>
-                                <li><a href="#"> German </a></li>
-                            </ul>
-                        </div>
-                        <div class="offset__single">
-                            <h4 class="offset__title">Currencies</h4>
-                            <ul>
-                                <li><a href="#"> USD : Dollar </a></li>
-                                <li><a href="#"> EUR : Euro </a></li>
-                                <li><a href="#"> POU : Pound </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="offset__sosial__share">
-                        <h4 class="offset__title">Follow Us On Social</h4>
-                        <ul class="off__soaial__link">
-                            <li><a class="bg--twitter" href="#"  title="Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
-                            
-                            <li><a class="bg--instagram" href="#" title="Instagram"><i class="zmdi zmdi-instagram"></i></a></li>
-
-                            <li><a class="bg--facebook" href="#" title="Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
-
-                            <li><a class="bg--googleplus" href="#" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a></li>
-
-                            <li><a class="bg--google" href="#" title="Google"><i class="zmdi zmdi-google"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- End Offset MEnu -->
-            <!-- Start Cart Panel -->
-            <div class="shopping__cart">
-                <div class="shopping__cart__inner">
-                    <div class="offsetmenu__close__btn">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </div>
-                    <div class="shp__cart__wrap">
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/1.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$105.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/2.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">Brone Candle</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$25.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="shoping__total">
-                        <li class="subtotal">Subtotal:</li>
-                        <li class="total__price">$130.00</li>
-                    </ul>
-                    <ul class="shopping__btn">
-                        <li><a href="cart.html">View Cart</a></li>
-                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Cart Panel -->
-        </div>
-        <!-- End Offset Wrapper -->
+        @include('partial.topbar')
+        
         <!-- Start Feature Product -->
         <section class="categories-slider-area bg__white">
             <div class="container">
@@ -193,7 +52,7 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="htc__contact__container">
                             <div class="htc__contact__address">
-                                <h2 class="contact__title">Mandiri Virtual Account</h2>
+                                <h2 class="contact__title">Metode Pembayaran : {{$order->payment_method}}</h2>
                                 <div class="contact__address__inner">
                                     <!-- Start Single Adress -->
                                     <div class="single__contact__address">
@@ -201,7 +60,13 @@
                                             <span class="ti-credit-card"></span>
                                         </div>
                                         <div class="contact__details">
-                                            <p><strong>Virtual Account :</strong> <br> 1234556789</p>
+                                            @if($order->payment_method == "Ovo")
+                                                <p><strong>Nomor Ovo</strong> <br> 0859-4607-1622</p>
+                                            @elseif($order->payment_method == "Gopay")
+                                                <p><strong>Nomor Gopay</strong> <br> 0859-4607-1622</p>
+                                            @else
+                                                <p><strong>Nomor rekening</strong> <br> 0112684806</p>
+                                            @endif
                                         </div>
                                     </div>
                                     <!-- End Single Adress -->
@@ -213,7 +78,7 @@
                                             <span class="ti-id-badge"></span>
                                         </div>
                                         <div class="contact__details">
-                                            <p> <strong>Virtual Account Name : </strong><br><a href="#">CokiesDessert </a></p>
+                                            <p> <strong>Atas Nama: </strong><br><a href="#">Sekar Kayang</a></p>
                                         </div>
                                     </div>
                                     <!-- End Single Adress -->
@@ -225,45 +90,22 @@
                                             <span class="ti-money"></span>
                                         </div>
                                         <div class="contact__details">
-                                            <p><strong>Total Pembayaran :</strong> <br> Rp. 98.000,00</p>
+                                            <p><strong>Total Pembayaran :</strong> <br> {{$order->total}}</p>
                                         </div>
                                     </div>
                                     <!-- End Single Adress -->
                                 </div>
                             </div>
-                            <div class="contact-form-wrap">
-                            <div class="contact-title">
-                                <h2 class="contact__title">Get In Touch</h2>
-                            </div>
-                            <form id="contact-form" action="mail.php" method="post">
-                                <div class="single-contact-form">
-                                    <div class="contact-box name">
-                                        <input type="text" name="name" placeholder="Your Nme*">
-                                        <input type="email" name="email" placeholder="Mail*">
-                                    </div>
-                                </div>
-                                <div class="single-contact-form">
-                                    <div class="contact-box subject">
-                                        <input type="text" name="subject" placeholder="Subject*">
-                                    </div>
-                                </div>
-                                <div class="single-contact-form">
-                                    <div class="contact-box message">
-                                        <textarea name="message"  placeholder="Massage*"></textarea>
-                                    </div>
-                                </div>
-                                <div class="contact-btn">
-                                    <button type="submit" class="fv-btn">SEND</button>
-                                </div>
-                            </form>
-                        </div> 
-                        <div class="form-output">
-                            <p class="form-messege"></p>
-                        </div>
+                            
                         </div>
                     </div>
                     <!-- End Left Feature -->
                 </div>
+                @if(Auth::user() != null)
+                    <h2 style="margin-bottom: 10px">Upload bukti pembayaran pada halaman <a style="color:red" href="{{route('profile')}}"> profil</a></h2>
+                @else
+                    <h2 style="margin-bottom: 10px">Upload bukti pembayaran pada halaman <a style="color:red" href="{{route('payment.confirmation')}}"> konfirmasi pembayaran</a></h2>
+                @endif
             </div>
         </section>
         <!-- End Feature Product -->
