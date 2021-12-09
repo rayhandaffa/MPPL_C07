@@ -865,7 +865,7 @@
                       <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Siap Diambil</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" id="custom-tabs-three-settings-tab" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="true">Settings</a>
+                      <a class="nav-link active" id="custom-tabs-three-settings-tab" data-toggle="pill" href="#custom-tabs-three-settings" role="tab" aria-controls="custom-tabs-three-settings" aria-selected="true">Selesai</a>
                     </li>
                   </ul>
                 </div>
@@ -877,16 +877,11 @@
                           <?php
                             $orders = DB::select('select * from orders where status = "menunggu_konfirmasi"');
                           ?>
-                          <!-- <div class="card-header">
-                            <h3 class="card-title">Expandable Table Tree</h3>
-                          </div> -->
-                          <!-- ./card-header -->
+                          
                           <div class="card-body p-0">
                             <table class="table table-hover">
                               <tbody>
-                                <!-- <tr>
-                                  <td class="border-0">183</td>
-                                </tr> -->
+                                
                                 @foreach($orders as $order)
                                 <?php
                                   $order_details = DB::select("select * from order_details where id_order = $order->id");
@@ -945,6 +940,72 @@
                         <div class="card">
                           <?php
                             $orders = DB::select('select * from orders where status = "disiapkan"');
+                          ?>
+                          
+                          <div class="card-body p-0">
+                            <table class="table table-hover">
+                              <tbody>
+                                <!-- <tr>
+                                  <td class="border-0">183</td>
+                                </tr> -->
+                                @foreach($orders as $order)
+                                <?php
+                                  $order_details = DB::select("select * from order_details where id_order = $order->id");
+                                ?>
+                                <tr data-widget="expandable-table" aria-expanded="true">
+                                  <td>
+                                    <div class="row">
+                                      <i class="expandable-table-caret fas fa-caret-right fa-fw"></i>
+                                      <p class="ml-5">Nomor Pesanan. {{$order->id}} <br> {{$order->name}}</p>
+                                      <div class="ml-auto">
+                                        <form action="{{route('order.update.status')}}" method="post">
+                                          @csrf
+                                          <input type="hidden" name="status" value="{{$order->status}}">
+                                          <input type="hidden" name="id" value="{{$order->id}}">
+                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Dikirim</button>
+                                        </form>
+                                      </div>
+                                      
+                                    </div>
+                                    
+                                  </td>
+                                </tr>
+                                <tr class="expandable-body d-none">
+                                  
+                                  <td>
+                                    <div class="p-0" style="display: none;">
+                                      <table class="table table-hover">
+                                        <tbody>
+                                        
+                                        @foreach($order_details as $detail)
+                                          <tr>
+                                            <?php
+                                              $product_name = DB::table('products')->where('id', $detail->id_product)->first()->name;
+
+                                            //  echo
+                                            ?>
+                                            <td>{{$product_name}}<span class="badge bg-primary float-right" >{{$detail->quantity}}</span></td>
+                                          </tr>
+                                        @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
+                      <div class="col-12">
+                        <div class="card">
+                          <?php
+                            $orders = DB::select('select * from orders where status = "dikirim"');
                           ?>
                           <!-- <div class="card-header">
                             <h3 class="card-title">Expandable Table Tree</h3>
@@ -1009,11 +1070,71 @@
                         <!-- /.card -->
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
-                      Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
-                    </div>
                     <div class="tab-pane fade active show" id="custom-tabs-three-settings" role="tabpanel" aria-labelledby="custom-tabs-three-settings-tab">
-                      Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+                    <div class="col-12">
+                        <div class="card">
+                          <?php
+                            $orders = DB::select('select * from orders where status = "selesai"');
+                          ?>
+                          
+                          <div class="card-body p-0">
+                            <table class="table table-hover">
+                              <tbody>
+                                <!-- <tr>
+                                  <td class="border-0">183</td>
+                                </tr> -->
+                                @foreach($orders as $order)
+                                <?php
+                                  $order_details = DB::select("select * from order_details where id_order = $order->id");
+                                ?>
+                                <tr data-widget="expandable-table" aria-expanded="true">
+                                  <td>
+                                    <div class="row">
+                                      <i class="expandable-table-caret fas fa-caret-right fa-fw"></i>
+                                      <p class="ml-5">Nomor Pesanan. {{$order->id}} <br> {{$order->name}}</p>
+                                      <div class="ml-auto">
+                                        <form action="{{route('order.update.status')}}" method="post">
+                                          @csrf
+                                          <input type="hidden" name="status" value="{{$order->status}}">
+                                          <input type="hidden" name="id" value="{{$order->id}}">
+                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Selesai</button>
+                                        </form>
+                                      </div>
+                                      
+                                    </div>
+                                    
+                                  </td>
+                                </tr>
+                                <tr class="expandable-body d-none">
+                                  
+                                  <td>
+                                    <div class="p-0" style="display: none;">
+                                      <table class="table table-hover">
+                                        <tbody>
+                                        
+                                        @foreach($order_details as $detail)
+                                          <tr>
+                                            <?php
+                                              $product_name = DB::table('products')->where('id', $detail->id_product)->first()->name;
+
+                                            //  echo
+                                            ?>
+                                            <td>{{$product_name}}<span class="badge bg-primary float-right" >{{$detail->quantity}}</span></td>
+                                          </tr>
+                                        @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
                     </div>
                   </div>
                 </div>

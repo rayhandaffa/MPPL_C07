@@ -40,8 +40,18 @@ class OrderController extends Controller
                 'quantity' => $item->quantity
             ]);
         }
+
+        $order = DB::table('orders')->where('id', $order_id)->first();
 		// alihkan halaman ke halaman pegawai
-		return redirect('/payment');
+		return redirect()->route('payment', ['id' => $order_id]);
+       
+    }
+
+    public function openPayment($id)
+    {
+        $order = DB::table('orders')->where('id',$id)->first();
+        
+		return view('payment', compact('order'));
        
     }
    
