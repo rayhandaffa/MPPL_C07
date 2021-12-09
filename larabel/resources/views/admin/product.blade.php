@@ -205,7 +205,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">boonga</a>
         </div>
       </div>
 
@@ -256,8 +256,13 @@
   <div class="content-wrapper">
       <div class="container-fluid">
         <div class="row">
-          
-            <button type="button" style = "left : 450px;  "class="m-4 btn btn-block btn-success btn-lg col-5" data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
+          <div id="wrapper" style= " width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+              <button type="button" style = "center"class="m-4 btn btn-block btn-success btn-lg col-5 " data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
+            </div>
+            
          
             <div class="col-12">
                 <div class="card">
