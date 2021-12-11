@@ -96,7 +96,22 @@ class ProductController extends Controller
 		]);
 
        
-		return redirect('/product');
+		return redirect()->route('product.details.open', ['id' => $request->id]);
+       
+    }
+
+    public function addProductQuestion(Request $request)
+    {
+       
+        DB::table('questions')->insert([
+			'name' => $request->name,
+			'email' => $request->email,
+			'description' => $request->description,
+			'id_product' => $request->id
+		]);
+
+       
+		return redirect()->route('product.details.open', ['id' => $request->id]);
        
     }
 }

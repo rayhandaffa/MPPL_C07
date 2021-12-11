@@ -86,6 +86,7 @@ Route::post('/admin/product/update', [ProductController::class, 'editProduct'])-
 Route::post('/admin/product/delete', [ProductController::class, 'deleteProduct'])->name('product.delete');
 Route::get('/product-details/{id}', [ProductController::class, 'openProductDetails'])->name('product.details.open');
 Route::post('/product/review/store', [ProductController::class, 'addProductReview'])->name('product.review.store');
+Route::post('/product/question/store', [ProductController::class, 'addProductQuestion'])->name('product.question.store');
 
 Route::get('/admin/order', function () {
     return view('admin.order');

@@ -1,5 +1,5 @@
 <header id="header" class="htc-header header--3 bg__white">
-    <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
+    <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header" style="background-color:#f6efe7">
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">

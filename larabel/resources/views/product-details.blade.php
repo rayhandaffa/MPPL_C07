@@ -155,61 +155,58 @@
                             <li role="presentation">
                                 <a href="#reviews" role="tab" data-toggle="tab">Ulasan</a>
                             </li>
+                            <li role="presentation">
+                                <a href="#questions" role="tab" data-toggle="tab">Pertanyaan</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="product__details__tab__content">
-                            <!-- Start Single Content -->
-                            <div class="review__address__inner">
-                                <?php
-                                    $reviews = DB::table('reviews')->where('id_product', $product->id)->get();
-                                    // dd($reviews);
-                                ?>
-                                @if($reviews != null)
-                                    <!-- Start Single Review -->
-                                    @foreach($reviews as $review)
-                                    <div class="pro__review m-4" >
-                                        <!-- <div class="review__thumb">
-                                            <img src="images/review/1.jpg" alt="review images">
-                                        </div> -->
-                                        <div class="review__details">
-                                            <div class="review__info">
-                                                <h4>{{$review->name}}</h4>
-                                                <ul class="rating">
-                                                    <li><h5>{{$review->rating}}/5</h5></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <!-- <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star-half"></i></li>
-                                                    <li><i class="zmdi zmdi-star-half"></i></li> -->
-                                                </ul>
-                                                <!-- <div class="rating__send">
-                                                    <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
-                                                    <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                </div> -->
+                            <div role="tabpanel" id="reviews" class="product__tab__content fade in active">
+                                <!-- Start Single Content -->
+                                <div class="review__address__inner">
+                                    <?php
+                                        $reviews = DB::table('reviews')->where('id_product', $product->id)->get();
+                                        //  dd(count($reviews));
+                                    ?>
+                                    @if(count($reviews) != 0)
+                                        <!-- Start Single Review -->
+                                        @foreach($reviews as $review)
+                                        <div class="pro__review m-4" >
+                                            <!-- <div class="review__thumb">
+                                                <img src="images/review/1.jpg" alt="review images">
+                                            </div> -->
+                                            <div class="review__details">
+                                                <div class="review__info">
+                                                    <h4>{{$review->name}}</h4>
+                                                    <ul class="rating">
+                                                        <li><h5>{{$review->rating}}/5</h5></li>
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                        <!-- <li><i class="zmdi zmdi-star"></i></li>
+                                                        <li><i class="zmdi zmdi-star-half"></i></li>
+                                                        <li><i class="zmdi zmdi-star-half"></i></li> -->
+                                                    </ul>
+                                                    <!-- <div class="rating__send">
+                                                        <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
+                                                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                                                    </div> -->
+                                                </div>
+                                                <div class="review__date">
+                                                    <span>{{$review->email}}</span>
+                                                </div>
+                                                <p>{{$review->description}}</p>
                                             </div>
-                                            <div class="review__date">
-                                                <span>{{$review->email}}</span>
-                                            </div>
-                                            <p>{{$review->description}}</p>
                                         </div>
-                                    </div>
-                                    @endforeach
-                                    <!-- End Single Review -->
-                                @else
-                                    <h4>Belum ada ulasan</h4>
-                                @endif
+                                        @endforeach
+                                        <!-- End Single Review -->
+                                    @else
+                                        <h4>Belum ada ulasan</h4>
+                                    @endif
                                 </div>
                                 <!-- Start RAting Area -->
-                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                    <ul class="product__deatils__tab mb--60" role="tablist">
-                                        
-                                        <li role="presentation">
-                                            <a  role="tab" data-toggle="tab">Tulis Ulasan</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <h2>Tulis Ulasan</h2>
                                 <div class="rating__wrap">
                                     <form action="{{ route('product.review.store') }}" method="post">
                                         @csrf
@@ -237,7 +234,34 @@
                                                                    
                                 </div>
                                     </form>
+                            </div>
                             <!-- End Single Content -->
+                            <div role="tabpanel" id="questions" class="product__tab__content fade in active">
+                                                             
+                                <h2>Tanyakan mengenai produk ini</h2>
+                                
+                                    <form action="{{ route('product.question.store') }}" method="post">
+                                        @csrf
+                                <div class="review__box">
+                                        <input type="hidden" value="{{$product->id}}" name="id">
+                                        <div class="single-review-form">
+                                            <div class="review-box name">
+                                                <input type="text" name="name" placeholder="Masukkan Nama">
+                                                <input type="email" name="email" placeholder="Masukkan Email">
+                                            </div>
+                                        </div>
+                                        <div class="single-review-form">
+                                            <div class="review-box message">
+                                                <textarea placeholder="Masukkan pertanyaan Anda" name="description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="review-btn">
+                                            <button class="btn btn-danger" type="submit" >Kirim</button>
+                                        </div>
+                                                                   
+                                </div>
+                                    </form>
+                            </div>
                         </div>
                     </div>
                 </div>
