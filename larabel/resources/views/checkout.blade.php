@@ -151,7 +151,7 @@
                                                 <div class="single-checkout-box">
                                                     <textarea name="address" placeholder="Alamat*"></textarea>
                                                 </div>
-                                                <input type="hidden" name=user_id value="-1">
+                                                <input type="hidden" name=user_id value="9999">
                                             </div>
                                             @endif
                                         </div>
