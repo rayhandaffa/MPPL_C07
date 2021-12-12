@@ -45,11 +45,11 @@
        @include('partial.topbar')
        
         <div class="bradcaump__inner text-center">
-            <h2 class="bradcaump-title">Cart</h2>
+            <h2 class="bradcaump-title">Keranjang</h2>
             <nav class="bradcaump-inner">
-                <a class="breadcrumb-item" href="index.html">Home</a>
+                <a class="breadcrumb-item" href="{{route('home')}}">Beranda</a>
                 <span class="brd-separetor">/</span>
-                <span class="breadcrumb-item active">Cart</span>
+                <span class="breadcrumb-item active">Keranjang</span>
             </nav>
         </div>
         <!-- cart-main-area start -->

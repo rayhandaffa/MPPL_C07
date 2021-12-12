@@ -12,11 +12,8 @@ class ProductController extends Controller
     public function addProduct(Request $request)
     {
         $name = $request->file('photo')->getClientOriginalName();
- 
-        // $path = $request->file('photo')->storeAs('product', $name);
         $path = $request->file('photo')->storeAs('', $name, 'product_file');
-            
-        // dd($name, $path);
+     
         DB::table('products')->insert([
 			'name' => $request->name,
 			'price' => $request->price,
@@ -25,10 +22,7 @@ class ProductController extends Controller
             'status' => 1,
             'photo' => $path
 		]);
-
-       
 		return redirect('/admin/product');
-       
     }
 
     public function editProductStatus(Request $request)
@@ -47,10 +41,7 @@ class ProductController extends Controller
 
     public function editProduct(Request $request)
     {
-        // dd($request);
         $name = $request->file('photo')->getClientOriginalName();
- 
-        // $path = $request->file('photo')->storeAs('product', $name);
         $path = $request->file('photo')->storeAs('', $name, 'product_file');
         DB::table('products')->where('id',$request->id)->update([
             'name' => $request->name,
@@ -60,14 +51,12 @@ class ProductController extends Controller
             'photo' => $path
         ]);
 		return redirect('/admin/product');
-       
     }
     public function deleteProduct(Request $request)
     {
         // dd($request);
         DB::table('products')->where('id',$request->id)->delete();
 		return redirect('/admin/product');
-       
     }
 
     public function openProductDetails($id)
@@ -82,10 +71,7 @@ class ProductController extends Controller
 
     public function addProductReview(Request $request)
     {
-        // dd($request);
-        // $cartItems = \Cart::getContent();
-        // // dd($cartItems);
-        // $current_date_time = Carbon::now()->toDateTimeString(); 
+       rbon::now()->toDateTimeString(); 
         // dd($request);
         DB::table('reviews')->insert([
             'rating' => $request->rating,
@@ -94,10 +80,7 @@ class ProductController extends Controller
 			'description' => $request->description,
 			'id_product' => $request->id
 		]);
-
-       
 		return redirect()->route('product.details.open', ['id' => $request->id]);
-       
     }
 
     public function addProductQuestion(Request $request)
@@ -109,9 +92,6 @@ class ProductController extends Controller
 			'description' => $request->description,
 			'id_product' => $request->id
 		]);
-
-       
 		return redirect()->route('product.details.open', ['id' => $request->id]);
-       
     }
 }

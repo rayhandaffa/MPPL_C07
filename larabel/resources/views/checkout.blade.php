@@ -158,7 +158,7 @@
                                         <!-- End Checkbox Area -->
                                         <!-- Start Payment Box -->
                                         <div class="payment-form" style="width:50%;">
-                                            <h2 class="section-title-3" style="padding:10px;">payment methods</h2>
+                                            <h2 class="section-title-3" style="padding:10px;">metode pembayaran</h2>
                                             <!-- <p>Lorem ipsum dolor sit amet, consectetur kgjhyt</p> -->
                                             <ul class="list-group list-group-flush" style="padding-left:30px;">
                                                 <li class="list-group-item">

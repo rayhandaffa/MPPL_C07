@@ -51,7 +51,7 @@
                                           @csrf
                                           <input type="hidden" name="status" value="{{$order->status}}">
                                           <input type="hidden" name="id" value="{{$order->id}}">
-                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Konfirmasi Pembayaran</button>
+                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-dark" style="max-width:none">Konfirmasi Pembayaran</button>
                                         </form>
                                       </div>
                                       
@@ -117,7 +117,7 @@
                                           @csrf
                                           <input type="hidden" name="status" value="{{$order->status}}">
                                           <input type="hidden" name="id" value="{{$order->id}}">
-                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Dikirim</button>
+                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-dark" style="max-width:none">Dikirim</button>
                                         </form>
                                       </div>
                                       
@@ -186,7 +186,7 @@
                                           @csrf
                                           <input type="hidden" name="status" value="{{$order->status}}">
                                           <input type="hidden" name="id" value="{{$order->id}}">
-                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Selesai</button>
+                                          <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-dark" style="max-width:none">Selesai</button>
                                         </form>
                                       </div>
                                       
@@ -248,12 +248,12 @@
                                       <i class="expandable-table-caret fas fa-caret-right fa-fw"></i>
                                       <p class="ml-5">Nomor Pesanan. {{$order->id}} <br> {{$order->name}}</p>
                                       <div class="ml-auto">
-                                        <form action="{{route('order.update.status')}}" method="post">
+                                        <!-- <form action="{{route('order.update.status')}}" method="post">
                                           @csrf
                                           <input type="hidden" name="status" value="{{$order->status}}">
                                           <input type="hidden" name="id" value="{{$order->id}}">
                                           <button type="submit" class=" ml-auto col-3 btn-sm btn btn-block btn-success" style="max-width:none">Selesai</button>
-                                        </form>
+                                        </form> -->
                                       </div>
                                       
                                     </div>

@@ -12,7 +12,7 @@
           display: flex;
           align-items: center;
           justify-content: center;">
-              <button type="button" style = "center"class="m-4 btn btn-block btn-success btn-lg col-5 " data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
+              <button type="button" style = "center"class="m-4 btn btn-block btn-dark btn-lg col-5 " data-toggle="modal" data-target="#modal-default">Tambah Produk</button>
             </div>
             
          

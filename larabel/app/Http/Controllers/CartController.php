@@ -13,7 +13,6 @@ class CartController extends Controller
         return view('cart2', compact('cartItems'));
     }
 
-
     public function addToCart(Request $request)
     {
         \Cart::add([
@@ -56,12 +55,4 @@ class CartController extends Controller
         return redirect()->route('cart.list');
     }
 
-    public function clearAllCart()
-    {
-        \Cart::clear();
-
-        session()->flash('success', 'All Item Cart Clear Successfully !');
-
-        return redirect()->route('cart.list');
-    }
 }
